@@ -80,7 +80,7 @@ export default function Hero() {
 
             {/* Download Resume - Solid cyan */}
             <a
-              href="/resume.pdf"
+              href="/SoumenPoreResume.pdf"
               download
               className="px-8 py-3 rounded-lg font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap inline-block"
             >
