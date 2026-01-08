@@ -5,7 +5,6 @@ import Navigation from "@/components/navigation"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Skills from "@/components/skills"
-import Statistics from "@/components/statistics"
 import Projects from "@/components/projects"
 import Achievements from "@/components/achievements"
 import Education from "@/components/education"
@@ -51,7 +50,6 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
-        <Statistics />
         <Projects />
         <Achievements />
         <Education />

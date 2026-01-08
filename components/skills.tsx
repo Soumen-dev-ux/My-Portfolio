@@ -8,7 +8,6 @@ const skillCategories = [
     skills: [
       { name: "React", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg" },
       { name: "Next.js", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/nextdotjs.svg" },
-      { name: "TypeScript", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/typescript.svg" },
       { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tailwindcss.svg" },
       { name: "HTML5", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg" },
       { name: "CSS3", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg" },
@@ -31,7 +30,10 @@ const skillCategories = [
       { name: "Git", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/git.svg" },
       { name: "GitHub", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg" },
       { name: "VS Code", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" },
-      { name: "Google Antigravity", logo: "https://brandlogos.net/wp-content/uploads/2025/12/google_antigravity-logo_brandlogos.net_qu4jc-768x708.png"}
+      {
+        name: "Google Antigravity",
+        logo: "https://brandlogos.net/wp-content/uploads/2025/12/google_antigravity-logo_brandlogos.net_qu4jc-768x708.png",
+      },
     ],
   },
 ]
@@ -64,7 +66,7 @@ export default function Skills() {
                     className="group flex flex-col items-center gap-3 animate-scaleIn"
                     style={{ animationDelay: `${idx * 50}ms` }}
                   >
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-lg hover:from-primary/40 hover:to-accent/40 dark:invert-0 invert p-3">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-lg hover:from-primary/40 hover:to-accent/40 light:invert dark:invert-0 p-3">
                       <img
                         src={skill.logo || "/placeholder.svg"}
                         alt={skill.name}
