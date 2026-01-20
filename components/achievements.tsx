@@ -34,6 +34,20 @@ const achievements = [
     icon: "🚀",
     description: "Successfully completed 1 month Full Stack Development Program and InternShip",
   },
+  {
+    title: "Finalist at Build with Gemini",
+    issuer: "IIT Kharagpur",
+    year: "2026",
+    icon: "🏆",
+    description: "Successfully cracked the problem of Round 1 and selcted and solved problem of Final Round for occasion of Asia's biggest Techno-management fest at IIT KGP.",
+  },
+  {
+    title: "Finalist at Source Code",
+    issuer: "IIT Kharagpur",
+    year: "2026",
+    icon: "🧑🏻‍💻",
+    description: "Cracked the midnight competitive coding competition and selected for Final Round for occasion of Asia's biggest Techno-management fest at IIT KGP.",
+  },
 ]
 
 export default function Achievements() {
