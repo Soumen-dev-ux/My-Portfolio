@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import CustomCursor from "@/components/custom-cursor"
+import ParticlesBackground from "@/components/particles-background"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -36,7 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+      <body className={`font-sans antialiased text-foreground selection:bg-primary/30 selection:text-primary`}>
+        <ParticlesBackground />
+        <CustomCursor />
         {children}
         <Analytics />
       </body>

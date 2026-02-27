@@ -41,7 +41,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Info</h3>
             <div className="space-y-2 text-sm text-foreground/70">
-              <p>Email: soumenpore7777@gmail.com</p>
+              <p>Email: soumenpore0109@gmail.com</p>
               <p>Phone: +91 7432840665</p>
               <p>Location: Kolkata, India</p>
             </div>

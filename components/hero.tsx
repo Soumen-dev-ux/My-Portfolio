@@ -1,13 +1,45 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+
+const roles = [
+  "Full Stack Developer",
+  "UI/UX Enthusiast",
+  "Freelancer",
+  "Researcher",
+  "Tech Founder"
+]
 
 export default function Hero() {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
+  const [displayText, setDisplayText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
 
+  // Typewriter effect logic
   useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+    let timer: NodeJS.Timeout
+    const currentRole = roles[currentRoleIndex]
+
+    const typeSpeed = isDeleting ? 50 : 100
+    const delaySpeed = isDeleting ? typeSpeed : (displayText === currentRole ? 2000 : typeSpeed)
+
+    if (!isDeleting && displayText === currentRole) {
+      // Pause at the end before deleting
+      timer = setTimeout(() => setIsDeleting(true), delaySpeed)
+    } else if (isDeleting && displayText === "") {
+      // Move to next role
+      setIsDeleting(false)
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length)
+    } else {
+      // Type or delete characters
+      timer = setTimeout(() => {
+        setDisplayText(currentRole.substring(0, displayText.length + (isDeleting ? -1 : 1)))
+      }, typeSpeed)
+    }
+
+    return () => clearTimeout(timer)
+  }, [displayText, isDeleting, currentRoleIndex])
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -22,50 +54,71 @@ export default function Hero() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
 
-      {/* Animated accent blur */}
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float-delayed" />
+      {/* Floating 3D-like Elements */}
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full glass bg-primary/10 animate-pulseGlow"
+        animate={{
+          y: [-20, 20, -20],
+          rotate: [0, 90, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full glass bg-accent/10 animate-pulseGlow"
+        animate={{
+          y: [20, -20, 20],
+          rotate: [0, -90, 0],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center justify-center text-center space-y-8">
-        <div className={`transition-all duration-700 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}>
-          <div className="w-32 h-32 rounded-full border-2 border-primary flex items-center justify-center bg-background/40 backdrop-blur-sm">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="w-32 h-32 rounded-full flex items-center justify-center clay">
             <span className="text-6xl">👨‍💻</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Main heading */}
-        <div
-          className={`transition-all duration-700 delay-100 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
             Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Soumen Pore</span>
+            <span className="text-gradient-animated">Soumen Pore</span>
           </h1>
-        </div>
+        </motion.div>
 
-        <div
-          className={`transition-all duration-700 delay-200 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="h-8" // Fixed height to prevent layout shift during typing
         >
-          <p className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-2xl">
-            A passionate Full Stack Developer crafting elegant solutions to complex problems
+          <p className="text-xl md:text-2xl text-foreground/80 font-medium">
+            I am a <span className="text-primary border-r-2 border-primary pr-1 animate-pulse">{displayText}</span>
           </p>
-        </div>
+        </motion.div>
 
-        <div
-          className={`transition-all duration-700 delay-300 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
             {/* View My Work - Solid blue */}
             <button
               onClick={() => scrollToSection("projects")}
-              className="px-8 py-3 rounded-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap"
+              className="px-8 py-3 text-lg rounded-xl whitespace-nowrap skeuo hover-glow"
             >
               View My Work
             </button>
@@ -73,7 +126,7 @@ export default function Hero() {
             {/* Get In Touch - Bordered cyan */}
             <button
               onClick={() => scrollToSection("contact")}
-              className="px-8 py-3 rounded-lg font-semibold border-2 border-accent text-accent hover:bg-accent/10 transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap"
+              className="px-8 py-3 text-lg rounded-xl whitespace-nowrap skeuo-secondary hover-glow"
             >
               Get In Touch
             </button>
@@ -82,20 +135,24 @@ export default function Hero() {
             <a
               href="/SoumenPoreResume.pdf"
               download
-              className="px-8 py-3 rounded-lg font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap inline-block"
+              className="px-8 py-3 text-lg rounded-xl whitespace-nowrap flex items-center justify-center skeuo hover-glow"
             >
               Download Resume
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+      >
         <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
-      </div>
-    </section>
+      </motion.div>
+    </section >
   )
 }

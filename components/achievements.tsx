@@ -1,3 +1,8 @@
+"use client"
+
+import { motion } from "framer-motion"
+import Tilt from "@/components/tilt"
+
 const achievements = [
   {
     title: "Freshers Talent",
@@ -54,31 +59,46 @@ export default function Achievements() {
   return (
     <section id="achievements" className="py-20 px-4 bg-card/50">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center">Achievements & Awards</h2>
+        <motion.h2
+          className="text-4xl font-bold mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Achievements & Awards
+        </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           {achievements.map((achievement, index) => (
-            <div
+            <motion.div
               key={index}
-              className="p-6 border-l-4 border-primary bg-background rounded-lg hover:shadow-lg transition-all duration-300 group cursor-pointer hover:-translate-y-1"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="flex items-start gap-4">
-                <div className="text-4xl flex-shrink-0 group-hover:scale-110 transition-transform">
-                  {achievement.icon}
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors">
-                    {achievement.title}
-                  </h3>
-                  <p className="text-sm text-foreground/70 mb-2">{achievement.description}</p>
-                  <div className="flex flex-wrap gap-3 text-foreground/60 text-xs">
-                    <span className="font-medium">{achievement.issuer}</span>
-                    <span>•</span>
-                    <span>{achievement.year}</span>
+              <Tilt className="group w-full h-full">
+                <div className="p-6 h-full border-l-4 border-primary bg-background rounded-lg pointer-events-auto">
+                  <div className="flex items-start gap-4">
+                    <div className="text-4xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                      {achievement.icon}
+                    </div>
+                    <div className="flex-grow">
+                      <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors">
+                        {achievement.title}
+                      </h3>
+                      <p className="text-sm text-foreground/70 mb-2">{achievement.description}</p>
+                      <div className="flex flex-wrap gap-3 text-foreground/60 text-xs">
+                        <span className="font-medium">{achievement.issuer}</span>
+                        <span>•</span>
+                        <span>{achievement.year}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </Tilt>
+            </motion.div>
           ))}
         </div>
       </div>
