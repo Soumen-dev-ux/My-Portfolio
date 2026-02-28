@@ -79,9 +79,9 @@ export default function Achievements() {
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               <Tilt className="group w-full h-full">
-                <div className="p-6 h-full border-l-4 border-primary bg-background rounded-lg pointer-events-auto">
-                  <div className="flex items-start gap-4">
-                    <div className="text-4xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                <div className="p-8 h-full border-l-4 border-primary neumorphic rounded-2xl pointer-events-auto hover-glow transition-all duration-300">
+                  <div className="flex items-start gap-6">
+                    <div className="text-4xl flex-shrink-0 group-hover:scale-110 transition-transform neumorphic-inset p-4 rounded-xl">
                       {achievement.icon}
                     </div>
                     <div className="flex-grow">

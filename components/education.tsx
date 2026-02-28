@@ -49,20 +49,20 @@ export default function Education() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <div className="md:w-1/2">
-                  <Spotlight className="h-full">
-                    <div className="relative z-20 p-6 bg-card rounded-lg">
-                      <div className="text-3xl mb-4">{item.icon}</div>
-                      <h3 className="text-xl font-bold mb-2">{item.degree}</h3>
-                      <div className="text-primary font-semibold mb-2">{item.institution}</div>
-                      <div className="text-foreground/60 text-sm mb-3">{item.year}</div>
-                      <p className="text-foreground/70">{item.description}</p>
+                  <Spotlight className="h-full neumorphic rounded-2xl hover-glow overflow-hidden transition-all duration-300">
+                    <div className="relative z-20 p-8">
+                      <div className="text-4xl mb-6 neumorphic-inset inline-block p-4 rounded-xl">{item.icon}</div>
+                      <h3 className="text-2xl font-bold mb-2">{item.degree}</h3>
+                      <div className="text-gradient-animated inline-block font-bold mb-3">{item.institution}</div>
+                      <div className="text-foreground/60 text-sm mb-4 font-medium">{item.year}</div>
+                      <p className="text-foreground/70 leading-relaxed">{item.description}</p>
                     </div>
                   </Spotlight>
                 </div>
 
                 {/* Timeline dot */}
-                <div className="hidden md:flex items-center justify-center">
-                  <div className="w-4 h-4 rounded-full bg-primary border-4 border-background" />
+                <div className="hidden md:flex items-center justify-center relative z-10 w-8">
+                  <div className="w-6 h-6 rounded-full skeuo border-4 border-background absolute" />
                 </div>
 
                 <div className="md:w-1/2" />

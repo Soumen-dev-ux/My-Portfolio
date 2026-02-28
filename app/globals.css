@@ -384,4 +384,21 @@
   .animate-pulseGlow {
     animation: pulseGlow 4s ease-in-out infinite alternate;
   }
+
+  /* Neumorphism (Soft UI) */
+  .neumorphic {
+    @apply bg-card border-none transition-all duration-300;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.05), -8px -8px 16px rgba(255, 255, 255, 0.8);
+  }
+  .dark .neumorphic {
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6), -8px -8px 16px rgba(255, 255, 255, 0.03);
+  }
+
+  .neumorphic-inset {
+    @apply bg-card border-none transition-all duration-300;
+    box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.06), inset -6px -6px 12px rgba(255, 255, 255, 0.9);
+  }
+  .dark .neumorphic-inset {
+    box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.5), inset -6px -6px 12px rgba(255, 255, 255, 0.04);
+  }
 }

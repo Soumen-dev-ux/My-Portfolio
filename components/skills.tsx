@@ -68,13 +68,13 @@ export default function Skills() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                className="absolute inset-0 p-8 rounded-2xl border border-border/30 bg-gradient-to-br from-primary/5 via-accent/5 to-transparent hover:border-primary/50 transition-colors duration-300 hover:shadow-xl backdrop-blur-sm"
+                className="absolute inset-0 p-8 rounded-2xl neumorphic border border-border/30 backdrop-blur-sm"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.5 }}
               >
-                <h3 className="text-3xl font-bold mb-10 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <h3 className="text-3xl font-bold mb-10 text-gradient-animated inline-block">
                   {skillCategories[currentIndex].title}
                 </h3>
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-6">
@@ -86,7 +86,7 @@ export default function Skills() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.1, duration: 0.3 }}
                       >
-                        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-sm group-hover:shadow-lg group-hover:from-primary/40 group-hover:to-accent/40 p-3">
+                        <div className="w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 cursor-pointer neumorphic-inset p-3 hover-glow">
                           <img
                             src={skill.logo || "/placeholder.svg"}
                             alt={skill.name}
@@ -110,8 +110,8 @@ export default function Skills() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                  ? "w-8 bg-gradient-to-r from-primary to-accent"
-                  : "w-2 bg-border hover:bg-border/70"
+                  ? "w-8 skeuo"
+                  : "w-2 neumorphic-inset"
                   }`}
                 aria-label={`Go to skill category ${index + 1}`}
               />

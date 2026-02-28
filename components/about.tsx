@@ -33,22 +33,22 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Spotlight className="bg-primary/5 hover:bg-primary/10 transition-colors">
-              <div className="relative z-20">
-                <div className="text-3xl font-bold text-primary mb-2">25+</div>
-                <div className="text-foreground/70">Projects Completed</div>
+            <Spotlight className="neumorphic rounded-2xl hover-glow group transition-all duration-300 overflow-hidden">
+              <div className="relative z-20 p-8">
+                <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">25+</div>
+                <div className="text-foreground/70 font-medium">Projects Completed</div>
               </div>
             </Spotlight>
-            <Spotlight className="bg-accent/5 hover:bg-accent/10 transition-colors">
-              <div className="relative z-20">
-                <div className="text-3xl font-bold text-accent mb-2">10+</div>
-                <div className="text-foreground/70">Hackathons</div>
+            <Spotlight className="neumorphic rounded-2xl hover-glow group transition-all duration-300 overflow-hidden">
+              <div className="relative z-20 p-8">
+                <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">10+</div>
+                <div className="text-foreground/70 font-medium">Hackathons</div>
               </div>
             </Spotlight>
-            <Spotlight className="bg-primary/5 hover:bg-primary/10 transition-colors">
-              <div className="relative z-20">
-                <div className="text-3xl font-bold text-primary mb-2">20+</div>
-                <div className="text-foreground/70">Google Badges Collected</div>
+            <Spotlight className="neumorphic rounded-2xl hover-glow group transition-all duration-300 overflow-hidden">
+              <div className="relative z-20 p-8">
+                <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">20+</div>
+                <div className="text-foreground/70 font-medium">Google Badges Collected</div>
               </div>
             </Spotlight>
           </motion.div>

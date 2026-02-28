@@ -106,9 +106,9 @@ export default function Projects() {
                     className="h-full"
                   >
                     <Tilt className="group h-full w-full">
-                      <div className="relative overflow-hidden rounded-xl border border-border bg-card transition-colors duration-300 h-full flex flex-col pointer-events-auto">
-                        <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-6xl overflow-hidden relative shrink-0">
-                          <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
+                      <div className="relative overflow-hidden rounded-xl neumorphic h-full flex flex-col pointer-events-auto hover-glow">
+                        <div className="h-48 neumorphic-inset flex items-center justify-center text-6xl overflow-hidden relative shrink-0">
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300 pointer-events-none" />
                           <span className="relative z-10 group-hover:scale-125 transition-transform duration-300">
                             {project.image}
                           </span>
@@ -145,22 +145,22 @@ export default function Projects() {
           </div>
 
           {/* Carousel Controls */}
-          <div className="flex items-center justify-center gap-4 mt-12 md:mt-8 relative z-10">
+          <div className="flex items-center justify-center gap-6 mt-12 md:mt-8 relative z-10">
             <button
               onClick={goToPrevious}
-              className="p-2 rounded-full border border-border hover:bg-primary/10 transition-colors duration-200"
+              className="p-3 rounded-full skeuo flex items-center justify-center"
               aria-label="Previous projects"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
 
             {/* Dots Indicator */}
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               {Array.from({ length: projects.length - itemsPerPage + 1 }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? "bg-primary w-8" : "bg-border"
+                  className={`h-3 rounded-full transition-all duration-300 ${index === currentIndex ? "w-10 skeuo" : "w-3 neumorphic-inset"
                     }`}
                   aria-label={`Go to project group ${index + 1}`}
                 />
@@ -169,10 +169,10 @@ export default function Projects() {
 
             <button
               onClick={goToNext}
-              className="p-2 rounded-full border border-border hover:bg-primary/10 transition-colors duration-200"
+              className="p-3 rounded-full skeuo flex items-center justify-center"
               aria-label="Next projects"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>
