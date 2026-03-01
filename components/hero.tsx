@@ -6,7 +6,7 @@ import Image from "next/image"
 
 const roles = [
   "Full Stack Developer",
-  "UI/UX Enthusiast",
+  "Tech Enthusiast",
   "Freelancer",
   "Researcher"
 ]
