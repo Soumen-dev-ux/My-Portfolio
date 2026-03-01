@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const roles = [
   "Full Stack Developer",
@@ -81,8 +82,16 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="w-32 h-32 rounded-full flex items-center justify-center clay">
-            <span className="text-6xl">👨‍💻</span>
+          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full flex items-center justify-center clay p-2 relative z-20 group">
+            <div className="w-full h-full rounded-full overflow-hidden relative border-4 border-background group-hover:border-primary/50 transition-colors duration-300">
+              <Image
+                src="/profile.webp"
+                alt="Soumen Pore"
+                fill
+                className="object-cover transform group-hover:scale-110 transition-transform duration-500"
+                priority
+              />
+            </div>
           </div>
         </motion.div>
 
