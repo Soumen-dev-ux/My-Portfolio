@@ -8,8 +8,7 @@ const roles = [
   "Full Stack Developer",
   "UI/UX Enthusiast",
   "Freelancer",
-  "Researcher",
-  "Tech Founder"
+  "Researcher"
 ]
 
 export default function Hero() {
