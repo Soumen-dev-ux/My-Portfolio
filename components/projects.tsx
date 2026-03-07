@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import Tilt from "@/components/tilt"
 import AnimatedText from "@/components/animated-text"
 
-const projects = [
+export const projects = [
   {
     id: 1,
     title: "E-Commerce Platform",
@@ -14,7 +14,7 @@ const projects = [
       "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
     tech: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
     image: "🛍️",
-    link: "#",
+    link: "/temp-page",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const projects = [
       "Collaborative project management tool with real-time updates, task tracking, and team collaboration features.",
     tech: ["React", "Firebase", "Tailwind CSS"],
     image: "📋",
-    link: "#",
+    link: "/temp-page",
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const projects = [
       "AI-powered chatbot with natural language processing, conversation history, and intelligent responses.",
     tech: ["Next.js", "OpenAI API", "React"],
     image: "🤖",
-    link: "#",
+    link: "/temp-page",
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const projects = [
     description: "Real-time analytics dashboard with interactive charts, data visualization, and performance metrics.",
     tech: ["React", "Chart.js", "Node.js"],
     image: "📊",
-    link: "#",
+    link: "/temp-page",
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const projects = [
     description: "Social networking platform with user profiles, messaging, feeds, and real-time notifications.",
     tech: ["Next.js", "WebSocket", "MongoDB"],
     image: "👥",
-    link: "#",
+    link: "/temp-page",
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ const projects = [
       "RESTful API backend for mobile applications with authentication, database management, and cloud deployment.",
     tech: ["Express.js", "MongoDB", "AWS"],
     image: "📱",
-    link: "#",
+    link: "/temp-page",
   },
 ]
 
