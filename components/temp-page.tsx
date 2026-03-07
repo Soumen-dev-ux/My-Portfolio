@@ -15,6 +15,8 @@ const ProjectNotice: React.FC = () => {
         <a href="soumen-pore.vercel.app" className="text-primary font-semibold hover:underline inline-flex items-center">
           Soumen Pore
         </a>
+        <br />
+        Embedded Full Stack Developer
       </p>
     </main>
   );
