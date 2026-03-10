@@ -124,12 +124,14 @@ export default function Hero() {
         >
           <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
             {/* View My Work - Solid blue */}
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="px-8 py-3 text-lg rounded-xl whitespace-nowrap skeuo hover-glow"
+            <a
+              href="https://tech-city-tsou.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 text-lg rounded-xl whitespace-nowrap flex items-center justify-center skeuo hover-glow"
             >
               View My Work
-            </button>
+            </a>
 
             {/* Get In Touch - Bordered cyan */}
             <button
