@@ -1,15 +1,29 @@
 "use client"
 
-interface ThemeToggleProps {
-  isDark: boolean
-  onToggle: () => void
-}
+import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 
-export default function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
+export default function ThemeToggle() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Avoid hydration mismatch by waiting for mount
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <button className="fixed top-20 right-4 z-40 p-2 rounded-full bg-accent/10 transition-colors duration-300 w-9 h-9" aria-label="Toggle theme" />
+    )
+  }
+
+  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+
   return (
     <button
-      onClick={onToggle}
-      className="fixed top-20 right-4 z-40 p-2 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors duration-300"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="fixed top-20 right-4 z-40 p-2 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors duration-300 flex items-center justify-center w-9 h-9"
       aria-label="Toggle theme"
     >
       {isDark ? (

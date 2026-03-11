@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import CustomCursor from "@/components/custom-cursor"
 import ParticlesBackground from "@/components/particles-background"
+import SmoothScrolling from "@/components/smooth-scrolling"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -12,23 +14,6 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Soumen Pore",
   description: "Web Resume of Soumen Pore",
-  icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
-  },
 }
 
 export default function RootLayout({
@@ -37,12 +22,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`font-sans antialiased text-foreground selection:bg-primary/30 selection:text-primary`}>
-        <ParticlesBackground />
-        <CustomCursor />
-        {children}
-        <Analytics />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <SmoothScrolling>
+            <ParticlesBackground />
+            <CustomCursor />
+            {children}
+            <Analytics />
+          </SmoothScrolling>
+        </ThemeProvider>
       </body>
     </html>
   )

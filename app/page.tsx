@@ -22,39 +22,10 @@ const allLogos = skillCategories.flatMap((category) =>
 )
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(false)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-    // Check if dark mode is stored or preferred
-    const isDarkMode =
-      localStorage.getItem("theme") === "dark" ||
-      (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    setIsDark(isDarkMode)
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark")
-    }
-  }, [])
-
-  const toggleTheme = () => {
-    const newDarkMode = !isDark
-    setIsDark(newDarkMode)
-    localStorage.setItem("theme", newDarkMode ? "dark" : "light")
-
-    if (newDarkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }
-
-  if (!mounted) return null
-
   return (
-    <div className={isDark ? "dark" : ""}>
+    <div>
       <Navigation />
-      <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
+      <ThemeToggle />
       <PageTransition>
         <main>
           <Hero />
