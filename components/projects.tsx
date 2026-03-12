@@ -2,6 +2,8 @@
 
 import AnimatedText from "@/components/animated-text"
 
+export const projects: any[] = []
+
 export default function Projects() {
   return (
     <section id="projects" className="py-20 px-4">

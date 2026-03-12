@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react"
 import PageTransition from "@/components/page-transition"
 import { useParams } from "next/navigation"
 
+
 export default function ProjectPage() {
   const params = useParams()
   const idStr = params.id as string
@@ -53,9 +54,9 @@ export default function ProjectPage() {
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h1>
 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech) => (
+                  {project.tech.map((tech: string, index: number) => (
                     <span
-                      key={tech}
+                      key={index}
                       className="px-4 py-1.5 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 font-medium"
                     >
                       {tech}
