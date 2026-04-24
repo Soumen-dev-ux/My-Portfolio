@@ -64,7 +64,7 @@ const achievements = [
     title: "Research Presentor and Delegate at FOSSET",
     issuer: "Forum of Scientists, Engineers and Technologists (FOSET)",
     year: "2026",
-    icon: "🧑🏻‍💻",
+    icon: "🧑🏻🎤",
     description: "Presented research paper as delegate at Greater Kolkata College of Engineering and Management for 16th academic meet of FOSET.",
   },
 ]
