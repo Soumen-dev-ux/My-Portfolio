@@ -61,7 +61,7 @@ const achievements = [
     description: "Presented first research peper in a National conference on AI.",
   },
   {
-    title: "Research Presentor and Delegate at FOSSET",
+    title: "Research Presentor and Delegate at FOSET",
     issuer: "Forum of Scientists, Engineers and Technologists (FOSET)",
     year: "2026",
     icon: "🎤",
