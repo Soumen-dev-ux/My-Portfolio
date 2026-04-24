@@ -53,6 +53,20 @@ const achievements = [
     icon: "🧑🏻‍💻",
     description: "Cracked the midnight competitive coding competition and selected for Final Round for occasion of Asia's biggest Techno-management fest at IIT KGP.",
   },
+  {
+    title: "Research Presentor at ATMAN AI",
+    issuer: "Gargi Memorial institute of Technology",
+    year: "2026",
+    icon: "🎤",
+    description: "Presented first research peper in a National conference on AI.",
+  },
+  {
+    title: "Research Presentor and Delegate at FOSSET",
+    issuer: "Forum of Scientists, Engineers and Technologists (FOSET)",
+    year: "2026",
+    icon: "🧑🏻‍💻",
+    description: "Presented research paper as delegate at Greater Kolkata College of Engineering and Management for 16th academic meet of FOSET.",
+  },
 ]
 
 export default function Achievements() {
