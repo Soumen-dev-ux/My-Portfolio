@@ -69,13 +69,13 @@ export default function Skills() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-              className="absolute inset-0 p-6 md:p-8 rounded-[2rem] mystic-panel overflow-hidden"
+                className="absolute inset-0 p-6 md:p-8 rounded-[2rem] mystic-panel overflow-hidden"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full border border-orange-300/20 animate-[rune-spin_18s_linear_infinite]" />
+                <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full border border-primary/20 animate-[rune-spin_18s_linear_infinite]" />
                 <h3 className="text-3xl font-bold mb-10 text-gradient-animated inline-block relative">
                   {skillCategories[currentIndex].title}
                 </h3>
@@ -88,14 +88,14 @@ export default function Skills() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.1, duration: 0.3 }}
                       >
-                        <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer border border-orange-300/30 bg-orange-500/5 p-3 group-hover:border-orange-100 group-hover:bg-orange-500/15 group-hover:shadow-[0_0_18px_rgba(251,146,60,.7)] group-hover:-translate-y-1">
+                        <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer border border-primary/30 bg-primary/5 p-3 group-hover:border-accent group-hover:bg-primary/15 group-hover:shadow-[0_0_18px_rgba(249,115,22,0.7)] group-hover:-translate-y-1">
                           <img
                             src={skill.logo || "/placeholder.svg"}
                             alt={skill.name}
                             className="w-full h-full object-contain filter drop-shadow-sm group-hover:drop-shadow-md transition-all duration-300"
                           />
                         </div>
-                        <span className="text-xs font-medium text-center text-orange-100/75 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <span className="text-xs font-medium text-center text-accent/75 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                           {skill.name}
                         </span>
                       </motion.div>
@@ -111,10 +111,11 @@ export default function Skills() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                  ? "w-8 bg-orange-400 shadow-[0_0_12px_#fb923c]"
-                  : "w-2 bg-orange-100/20"
-                  }`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "w-8 bg-primary shadow-[0_0_12px_#F97316]"
+                    : "w-2 bg-primary/20"
+                }`}
                 aria-label={`Go to skill category ${index + 1}`}
               />
             ))}

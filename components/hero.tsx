@@ -56,7 +56,7 @@ export default function Hero() {
 
       {/* Floating 3D-like Elements */}
       <motion.div
-        className="absolute top-1/4 left-[12%] h-32 w-32 rounded-full border border-orange-300/30 bg-orange-500/10 blur-[1px]"
+        className="absolute top-1/4 left-[12%] h-32 w-32 rounded-full border border-primary/30 bg-primary/10 blur-[1px]"
         animate={{
           y: [-20, 20, -20],
           rotate: [0, 90, 0],
@@ -65,7 +65,7 @@ export default function Hero() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-1/3 right-[12%] h-40 w-40 rounded-full border border-amber-300/30 bg-amber-400/10 blur-[1px]"
+        className="absolute bottom-1/3 right-[12%] h-40 w-40 rounded-full border border-accent/30 bg-accent/10 blur-[1px]"
         animate={{
           y: [20, -20, 20],
           rotate: [0, -90, 0],
@@ -83,7 +83,7 @@ export default function Hero() {
         >
           <div className="h-32 w-32 md:h-48 md:w-48 rounded-full flex items-center justify-center p-2 relative z-20 group">
             <MagicCircle />
-            <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-orange-200/80 group-hover:border-amber-100 transition-colors duration-300 shadow-[0_0_30px_rgba(249,115,22,.55)]">
+            <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-primary/80 group-hover:border-accent transition-colors duration-300 shadow-[0_0_30px_rgba(249,115,22,0.55)]">
               <Image
                 src="/profile.webp"
                 alt="Soumen Pore"

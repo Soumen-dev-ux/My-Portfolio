@@ -20,7 +20,7 @@ export default function Projects() {
           transition={{ type: "spring", stiffness: 90, damping: 14 }}
         >
           <MagicCircle className="scale-[1.35]" />
-          <div className="absolute inset-4 rounded-full bg-orange-500/10 blur-xl shadow-[0_0_50px_rgba(249,115,22,.42)]" />
+          <div className="absolute inset-4 rounded-full bg-primary/10 blur-xl shadow-[0_0_50px_rgba(249,115,22,0.42)]" />
           <a
             href="https://tech-city-tsou.vercel.app/"
             target="_blank"

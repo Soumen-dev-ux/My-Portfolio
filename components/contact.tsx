@@ -49,7 +49,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
-        <div className="relative mystic-panel p-8 md:p-12 rounded-[2rem] transition-all duration-300 focus-within:border-orange-200/70 focus-within:shadow-[0_0_35px_rgba(249,115,22,.25)] overflow-hidden">
+        <div className="relative mystic-panel p-8 md:p-12 rounded-[2rem] transition-all duration-300 focus-within:border-primary/70 focus-within:shadow-[0_0_35px_rgba(249,115,22,0.25)] overflow-hidden">
           <MagicCircle compact className="-right-12 -top-12 h-36 w-36 opacity-45" />
           <motion.h2
             className="text-4xl font-bold mb-4 text-center text-gradient-animated inline-block w-full"
@@ -163,7 +163,7 @@ export default function Contact() {
                 key={social.label}
                 href={social.link}
                 aria-label={social.label}
-                className="w-14 h-14 rounded-full flex items-center justify-center border border-orange-300/30 bg-orange-500/10 hover:border-orange-100 hover:shadow-[0_0_18px_rgba(251,146,60,.7)] group"
+                className="w-14 h-14 rounded-full flex items-center justify-center border border-primary/30 bg-primary/10 hover:border-accent hover:shadow-[0_0_18px_rgba(249,115,22,0.7)] group"
                 whileHover={{ scale: 1.15, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               >
