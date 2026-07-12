@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import MagicCircle from "@/components/magic-circle"
 
 const roles = [
   "Full Stack Developer",
@@ -51,12 +52,11 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-20"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(194,65,12,.20),transparent_38%),linear-gradient(to_bottom,rgba(12,8,16,.1),var(--background))]" />
 
       {/* Floating 3D-like Elements */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full glass bg-primary/10 animate-pulseGlow"
+        className="absolute top-1/4 left-[12%] h-32 w-32 rounded-full border border-orange-300/30 bg-orange-500/10 blur-[1px]"
         animate={{
           y: [-20, 20, -20],
           rotate: [0, 90, 0],
@@ -65,7 +65,7 @@ export default function Hero() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full glass bg-accent/10 animate-pulseGlow"
+        className="absolute bottom-1/3 right-[12%] h-40 w-40 rounded-full border border-amber-300/30 bg-amber-400/10 blur-[1px]"
         animate={{
           y: [20, -20, 20],
           rotate: [0, -90, 0],
@@ -81,8 +81,9 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full flex items-center justify-center clay p-2 relative z-20 group">
-            <div className="w-full h-full rounded-full overflow-hidden relative border-4 border-background group-hover:border-primary/50 transition-colors duration-300">
+          <div className="h-32 w-32 md:h-48 md:w-48 rounded-full flex items-center justify-center p-2 relative z-20 group">
+            <MagicCircle />
+            <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-orange-200/80 group-hover:border-amber-100 transition-colors duration-300 shadow-[0_0_30px_rgba(249,115,22,.55)]">
               <Image
                 src="/profile.webp"
                 alt="Soumen Pore"
@@ -128,7 +129,7 @@ export default function Hero() {
               href="https://tech-city-tsou.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 text-lg rounded-xl whitespace-nowrap flex items-center justify-center skeuo hover-glow"
+              className="spell-button px-8 py-3 text-lg rounded-full whitespace-nowrap flex items-center justify-center"
             >
               View My Work
             </a>
@@ -136,7 +137,7 @@ export default function Hero() {
             {/* Get In Touch - Bordered cyan */}
             <button
               onClick={() => scrollToSection("contact")}
-              className="px-8 py-3 text-lg rounded-xl whitespace-nowrap skeuo-secondary hover-glow"
+              className="spell-button px-8 py-3 text-lg rounded-full whitespace-nowrap bg-transparent"
             >
               Get In Touch
             </button>
@@ -145,7 +146,7 @@ export default function Hero() {
             <a
               href="/SoumenPoreResume.pdf"
               download
-              className="px-8 py-3 text-lg rounded-xl whitespace-nowrap flex items-center justify-center skeuo hover-glow"
+              className="spell-button px-8 py-3 text-lg rounded-full whitespace-nowrap flex items-center justify-center"
             >
               Download Resume
             </a>
