@@ -24,11 +24,11 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50 transition-all duration-300">
+    <nav className="fixed top-0 w-full bg-background/75 backdrop-blur-xl border-b border-primary/15 z-50 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <div className="text-2xl font-bold text-primary drop-shadow-[0_0_10px_rgba(249,115,22,0.8)]">
               SP
             </div>
             <div className="hidden sm:block">
@@ -43,7 +43,7 @@ export default function Navigation() {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="text-foreground/70 hover:text-foreground transition-colors duration-300 text-sm font-medium"
+                className="text-foreground/70 hover:text-accent transition-colors duration-300 text-sm font-medium"
               >
                 {item.label}
               </button>
@@ -65,7 +65,7 @@ export default function Navigation() {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="block w-full text-left px-4 py-2 text-foreground/70 hover:text-foreground hover:bg-accent/10 rounded-md transition-colors"
+                className="block w-full text-left px-4 py-2 text-foreground/70 hover:text-accent hover:bg-primary/10 rounded-md transition-colors"
               >
                 {item.label}
               </button>

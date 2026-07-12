@@ -17,9 +17,7 @@ export default function ParticlesBackground() {
     })
   }, [])
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log("Particles loaded", container)
-  }
+  const particlesLoaded = async (_container?: Container): Promise<void> => {}
 
   if (!init) return <div className="fixed inset-0 -z-10 bg-background" />
 
@@ -35,7 +33,7 @@ export default function ParticlesBackground() {
               value: "transparent",
             },
           },
-          fpsLimit: 120,
+          fpsLimit: 60,
           interactivity: {
             events: {
               onClick: {
@@ -59,11 +57,11 @@ export default function ParticlesBackground() {
           },
           particles: {
             color: {
-              value: ["#0ea5e9", "#6366f1"],
+              value: ["#F97316", "#FACC15", "#FAFAFA"],
             },
             links: {
-              color: "#6366f1",
-              distance: 150,
+              color: "#F97316",
+              distance: 130,
               enable: true,
               opacity: 0.2,
               width: 1,
@@ -82,7 +80,7 @@ export default function ParticlesBackground() {
               density: {
                 enable: true,
               },
-              value: 80,
+              value: 50,
             },
             opacity: {
               value: 0.5,
@@ -97,9 +95,7 @@ export default function ParticlesBackground() {
           detectRetina: true,
         }}
       />
-      {/* Fallback grid / subtle overlay to combine with particles */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none z-10" />
+      <div className="absolute inset-0 cosmic-vignette pointer-events-none z-10" />
     </div>
   )
 }

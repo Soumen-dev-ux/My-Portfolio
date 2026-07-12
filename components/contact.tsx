@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import MagicCircle from "@/components/magic-circle"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -48,7 +49,8 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
-        <div className="clay p-8 md:p-12 rounded-[2rem] transition-all duration-300 focus-within:neon-glow">
+        <div className="relative mystic-panel p-8 md:p-12 rounded-[2rem] transition-all duration-300 focus-within:border-primary/70 focus-within:shadow-[0_0_35px_rgba(249,115,22,0.25)] overflow-hidden">
+          <MagicCircle compact className="-right-12 -top-12 h-36 w-36 opacity-45" />
           <motion.h2
             className="text-4xl font-bold mb-4 text-center text-gradient-animated inline-block w-full"
             initial={{ opacity: 0, y: 20 }}
@@ -137,7 +139,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full px-6 py-4 text-lg rounded-2xl skeuo disabled:opacity-50 disabled:cursor-not-allowed"
+            className="spell-button w-full px-6 py-4 text-lg rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? "Sending..." : "Send Message"}
             </button>
@@ -161,7 +163,7 @@ export default function Contact() {
                 key={social.label}
                 href={social.link}
                 aria-label={social.label}
-                className="w-14 h-14 rounded-full flex items-center justify-center skeuo-secondary hover-glow group"
+                className="w-14 h-14 rounded-full flex items-center justify-center border border-primary/30 bg-primary/10 hover:border-accent hover:shadow-[0_0_18px_rgba(249,115,22,0.7)] group"
                 whileHover={{ scale: 1.15, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               >

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Spotlight from "@/components/spotlight"
+import MagicCircle from "@/components/magic-circle"
 
 const education = [
   {
@@ -36,7 +36,7 @@ export default function Education() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-accent" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary to-transparent shadow-[0_0_9px_#F97316]" />
 
           <div className="space-y-8">
             {education.map((item, index) => (
@@ -49,20 +49,20 @@ export default function Education() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <div className="md:w-1/2">
-                  <Spotlight className="h-full neumorphic rounded-2xl hover-glow overflow-hidden transition-all duration-300">
+                  <div className="h-full mystic-panel rounded-[2rem] overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_28px_rgba(249,115,22,0.2)]">
                     <div className="relative z-20 p-8">
-                      <div className="text-4xl mb-6 neumorphic-inset inline-block p-4 rounded-xl">{item.icon}</div>
+                      <div className="text-4xl mb-6 inline-block p-4 rounded-full border border-primary/35 bg-primary/10">{item.icon}</div>
                       <h3 className="text-2xl font-bold mb-2">{item.degree}</h3>
                       <div className="text-gradient-animated inline-block font-bold mb-3">{item.institution}</div>
                       <div className="text-foreground/60 text-sm mb-4 font-medium">{item.year}</div>
                       <p className="text-foreground/70 leading-relaxed">{item.description}</p>
                     </div>
-                  </Spotlight>
+                  </div>
                 </div>
 
                 {/* Timeline dot */}
                 <div className="hidden md:flex items-center justify-center relative z-10 w-8">
-                  <div className="w-6 h-6 rounded-full skeuo border-4 border-background absolute" />
+                  <div className="relative h-12 w-12"><MagicCircle compact /><div className="absolute inset-[38%] rounded-full bg-accent shadow-[0_0_18px_#F97316]" /></div>
                 </div>
 
                 <div className="md:w-1/2" />
