@@ -88,7 +88,7 @@ export default function Skills() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.1, duration: 0.3 }}
                       >
-                        <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer border border-primary/30 bg-primary/5 p-3 group-hover:border-accent group-hover:bg-primary/15 group-hover:shadow-[0_0_18px_rgba(249,115,22,0.7)] group-hover:-translate-y-1">
+                        <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer border border-primary/30 bg-primary/5 p-3 group-hover:border-accent group-hover:bg-primary/15 group-hover:shadow-[0_0_18px_rgba(56,189,248,0.7)] group-hover:-translate-y-1">
                           <img
                             src={skill.logo || "/placeholder.svg"}
                             alt={skill.name}
@@ -113,7 +113,7 @@ export default function Skills() {
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "w-8 bg-primary shadow-[0_0_12px_#F97316]"
+                    ? "w-8 bg-primary shadow-[0_0_12px_#38BDF8]"
                     : "w-2 bg-primary/20"
                 }`}
                 aria-label={`Go to skill category ${index + 1}`}

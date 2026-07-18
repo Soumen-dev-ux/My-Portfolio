@@ -33,11 +33,16 @@ import {
     Group,
     ShadowMaterial,
     PCFSoftShadowMap,
-} from "https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js"
+} from "three"
 
-// ============================================================================
-// IMAGE SOURCE RESOLUTION
-// ============================================================================
+// Mock RenderTarget for environments outside of Framer
+const RenderTarget = {
+    current: () => "preview",
+    canvas: "canvas",
+    preview: "preview",
+    export: "export",
+    thumbnail: "thumbnail",
+}
 
 // Default sticker shown when no image is uploaded.
 const DEFAULT_IMAGE =

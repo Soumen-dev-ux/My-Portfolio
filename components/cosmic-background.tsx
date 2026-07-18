@@ -14,9 +14,9 @@ interface CosmicBackgroundProps {
 
 export default function CosmicBackground({
   particleCount = 60,
-  glowColor1 = "#F97316",
-  glowColor2 = "#EA580C",
-  glowColor3 = "#FACC15",
+  glowColor1 = "#38BDF8",
+  glowColor2 = "#0284C7",
+  glowColor3 = "#06B6D4",
   className = "",
 }: CosmicBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
