@@ -130,7 +130,7 @@ export default function CosmicBackground({
     }
 
     // Initialize floating glowing neon role glyph tags in background
-    const rolesList = ["CODER", "PRESENTER", "LEADER", "HACKER"]
+    const rolesList = [""]
     for (let r = 0; r < rolesList.length; r++) {
       particles.push({
         x: Math.random() * width,

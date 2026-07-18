@@ -124,13 +124,15 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
-            {/* View My Work - Scroll to projects */}
-            <button
-              onClick={() => scrollToSection("projects")}
+            {/* View My Work - Solid blue */}
+            <a
+              href="https://tech-city-tsou.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="spell-button px-8 py-3 text-lg rounded-full whitespace-nowrap flex items-center justify-center"
             >
               View My Work
-            </button>
+            </a>
 
             {/* Get In Touch - Bordered cyan */}
             <button
