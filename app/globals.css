@@ -226,6 +226,23 @@
     animation: bounce 2s ease-in-out infinite;
   }
 
+  @keyframes spellFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      box-shadow: 0 0 25px #F97316, 0 0 50px #FACC15, inset 0 0 20px #EA580C;
+      border-color: #F97316;
+      filter: brightness(1.15) contrast(1.1);
+    }
+    20%, 22%, 24%, 55% {
+      box-shadow: 0 0 6px rgba(249, 115, 22, 0.3);
+      border-color: rgba(249, 115, 22, 0.4);
+      filter: brightness(0.9) contrast(0.95);
+    }
+  }
+
+  .animate-spellFlicker {
+    animation: spellFlicker 6s linear infinite;
+  }
+
   /* --- Design Styles --- */
 
   /* Glassmorphism */

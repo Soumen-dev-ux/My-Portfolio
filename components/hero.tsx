@@ -6,10 +6,10 @@ import Image from "next/image"
 import MagicCircle from "@/components/magic-circle"
 
 const roles = [
-  "Full Stack Developer",
   "Tech Enthusiast",
   "Freelancer",
-  "Researcher"
+  "Full-Stack Developer",
+  "Reearcher"
 ]
 
 export default function Hero() {
@@ -83,7 +83,7 @@ export default function Hero() {
         >
           <div className="h-32 w-32 md:h-48 md:w-48 rounded-full flex items-center justify-center p-2 relative z-20 group">
             <MagicCircle />
-            <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-primary/80 group-hover:border-accent transition-colors duration-300 shadow-[0_0_30px_rgba(249,115,22,0.55)]">
+            <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-primary/80 transition-all duration-300 animate-spellFlicker">
               <Image
                 src="/profile.webp"
                 alt="Soumen Pore"
@@ -114,7 +114,7 @@ export default function Hero() {
           className="h-8" // Fixed height to prevent layout shift during typing
         >
           <p className="text-xl md:text-2xl text-foreground/80 font-medium">
-            I am a <span className="text-primary border-r-2 border-primary pr-1 animate-pulse">{displayText}</span>
+            I am a <span className="text-primary font-bold drop-shadow-[0_0_8px_#F97316] border-r-2 border-primary pr-1 animate-pulse">{displayText}</span>
           </p>
         </motion.div>
 
@@ -164,6 +164,6 @@ export default function Hero() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </motion.div>
-    </section >
+    </section>
   )
 }

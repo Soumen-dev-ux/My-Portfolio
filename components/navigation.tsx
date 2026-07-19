@@ -28,7 +28,7 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
-            <div className="text-2xl font-bold text-primary drop-shadow-[0_0_10px_rgba(249,115,22,0.8)]">
+            <div className="text-2xl font-bold text-primary drop-shadow-[0_0_10px_rgba(56,189,248,0.8)]">
               SP
             </div>
             <div className="hidden sm:block">
