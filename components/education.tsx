@@ -1,5 +1,7 @@
 "use client"
 
+import AnimatedText from "@/components/animated-text"
+
 const education = [
   {
     degree: "Higher Secondary",
@@ -21,9 +23,7 @@ export default function Education() {
   return (
     <section id="education" className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center">
-          Education
-        </h2>
+        <AnimatedText text="Education & Internship" className="text-4xl font-bold mb-12 text-center text-white" />
 
         <div className="relative">
           {/* Timeline line */}

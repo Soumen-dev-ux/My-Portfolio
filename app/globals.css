@@ -348,6 +348,14 @@
     background-clip: text;
   }
 
+  .text-gradient-animated div,
+  .text-gradient-animated span {
+    background: inherit !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
   .dark .text-gradient-animated {
     background: linear-gradient(90deg, #38BDF8, #22D3EE, #0284C7);
     -webkit-background-clip: text;
@@ -415,10 +423,34 @@
   .magic-circle__ring--inner i { @apply absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-accent; box-shadow: 0 0 12px 4px #38BDF8; }
   .magic-circle--compact .magic-circle__ring--outer { inset: -28%; }
 
-  /* Disable all animations and transitions globally */
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
+  @keyframes marquee-ltr {
+    from {
+      transform: translate3d(-50%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes marquee-rtl {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .animate-marquee-ltr {
+    animation: marquee-ltr 30s linear infinite;
+  }
+
+  .animate-marquee-rtl {
+    animation: marquee-rtl 30s linear infinite;
+  }
+
+  .animate-marquee-ltr:hover,
+  .animate-marquee-rtl:hover {
+    animation-play-state: paused;
   }
 }

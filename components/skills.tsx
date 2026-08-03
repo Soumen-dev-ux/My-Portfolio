@@ -1,6 +1,7 @@
 "use client"
 
 import Magnetic from "@/components/magnetic"
+import AnimatedText from "@/components/animated-text"
 
 export const skillCategories = [
   {
@@ -43,9 +44,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center">
-          <span className="text-gradient-animated">Skills & Expertise</span>
-        </h2>
+        <AnimatedText text="Skills & Expertise" className="text-4xl font-bold mb-12 text-center text-white" />
 
         <div className="grid md:grid-cols-3 gap-8">
           {skillCategories.map((category) => (

@@ -1,6 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import { gsap } from "gsap"
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin"
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrambleTextPlugin)
+}
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,6 +29,17 @@ export default function Navigation() {
     }
   }
 
+  const onLinkEnter = (e: React.MouseEvent<HTMLButtonElement>, label: string) => {
+    gsap.to(e.currentTarget, {
+      duration: 0.5,
+      scrambleText: {
+        text: label,
+        chars: "01X#$@&%<>[]{}*+=_~?",
+        speed: 1,
+      }
+    })
+  }
+
   return (
     <nav className="fixed top-0 w-full bg-background/75 backdrop-blur-xl border-b border-primary/15 z-50 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,6 +60,7 @@ export default function Navigation() {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
+                onMouseEnter={(e) => onLinkEnter(e, item.label)}
                 className="text-foreground/70 hover:text-accent transition-colors duration-300 text-sm font-medium"
               >
                 {item.label}
@@ -65,6 +83,7 @@ export default function Navigation() {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
+                onMouseEnter={(e) => onLinkEnter(e, item.label)}
                 className="block w-full text-left px-4 py-2 text-foreground/70 hover:text-accent hover:bg-primary/10 rounded-md transition-colors"
               >
                 {item.label}

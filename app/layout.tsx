@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import NoiseBackground from "@/components/noise-dark-blue-gradient-with-squares"
+import GsapInitializer from "@/components/gsap-initializer"
 
 export const metadata: Metadata = {
   title: "Soumen Pore",
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans antialiased text-foreground selection:bg-primary/30 selection:text-primary`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+          <GsapInitializer />
           <NoiseBackground />
           {children}
           <Analytics />
