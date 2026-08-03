@@ -1,5 +1,6 @@
 import Spotlight from "@/components/spotlight"
 import AnimatedText from "@/components/animated-text"
+import BorderGlow from "@/components/BorderGlow"
 
 export default function About() {
   return (
@@ -20,24 +21,48 @@ export default function About() {
           </div>
 
           <div className="space-y-4">
-            <Spotlight className="neumorphic rounded-2xl hover-glow group transition-all duration-300 overflow-hidden">
-              <div className="relative z-20 p-8">
-                <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">25+</div>
-                <div className="text-foreground/70 font-medium">Projects Completed</div>
-              </div>
-            </Spotlight>
-            <Spotlight className="neumorphic rounded-2xl hover-glow group transition-all duration-300 overflow-hidden">
-              <div className="relative z-20 p-8">
-                <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">10+</div>
-                <div className="text-foreground/70 font-medium">Hackathons</div>
-              </div>
-            </Spotlight>
-            <Spotlight className="neumorphic rounded-2xl hover-glow group transition-all duration-300 overflow-hidden">
-              <div className="relative z-20 p-8">
-                <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">20+</div>
-                <div className="text-foreground/70 font-medium">Google Badges Collected</div>
-              </div>
-            </Spotlight>
+            <BorderGlow
+              glowColor="198 93 60"
+              colors={['#38bdf8', '#22d3ee', '#0284c7']}
+              borderRadius={16}
+              backgroundColor="#120F17"
+              className="rounded-2xl"
+            >
+              <Spotlight className="neumorphic box-glow rounded-2xl hover-glow group transition-all duration-300 overflow-hidden p-8">
+                <div className="relative z-20">
+                  <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">25+</div>
+                  <div className="text-foreground/70 font-medium">Projects Completed</div>
+                </div>
+              </Spotlight>
+            </BorderGlow>
+            <BorderGlow
+              glowColor="198 93 60"
+              colors={['#38bdf8', '#22d3ee', '#0284c7']}
+              borderRadius={16}
+              backgroundColor="#120F17"
+              className="rounded-2xl"
+            >
+              <Spotlight className="neumorphic box-glow rounded-2xl hover-glow group transition-all duration-300 overflow-hidden p-8">
+                <div className="relative z-20">
+                  <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">10+</div>
+                  <div className="text-foreground/70 font-medium">Hackathons</div>
+                </div>
+              </Spotlight>
+            </BorderGlow>
+            <BorderGlow
+              glowColor="198 93 60"
+              colors={['#38bdf8', '#22d3ee', '#0284c7']}
+              borderRadius={16}
+              backgroundColor="#120F17"
+              className="rounded-2xl"
+            >
+              <Spotlight className="neumorphic box-glow rounded-2xl hover-glow group transition-all duration-300 overflow-hidden p-8">
+                <div className="relative z-20">
+                  <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">20+</div>
+                  <div className="text-foreground/70 font-medium">Google Badges Collected</div>
+                </div>
+              </Spotlight>
+            </BorderGlow>
           </div>
         </div>
       </div>

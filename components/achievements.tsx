@@ -2,6 +2,7 @@
 
 import { Trophy, Star, Award, Mic, Rocket, Code2, Sparkles } from "lucide-react"
 import AnimatedText from "@/components/animated-text"
+import BorderGlow from "@/components/BorderGlow"
 
 const achievements = [
   {
@@ -91,7 +92,13 @@ export default function Achievements() {
   const AchievementCard = ({ achievement }: { achievement: typeof achievements[0] }) => {
     const IconComponent = achievement.icon
     return (
-      <div className="w-[320px] md:w-[380px] flex-shrink-0 p-6 border-l-4 border-primary mystic-panel rounded-2xl transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)]">
+      <BorderGlow
+        glowColor="198 93 60"
+        colors={['#38bdf8', '#22d3ee', '#0284c7']}
+        borderRadius={16}
+        backgroundColor="#120F17"
+        className="w-[320px] md:w-[380px] flex-shrink-0 p-6 border-l-4 border-primary mystic-panel box-glow rounded-2xl transition-all duration-300 hover:border-primary/50"
+      >
         <div className="flex items-start gap-4">
           <div className="text-primary flex-shrink-0 bg-primary/15 p-3 rounded-xl border border-primary/25">
             <IconComponent className="w-5 h-5" />
@@ -110,7 +117,7 @@ export default function Achievements() {
             </div>
           </div>
         </div>
-      </div>
+      </BorderGlow>
     )
   }
 

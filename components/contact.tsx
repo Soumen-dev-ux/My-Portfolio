@@ -1,6 +1,7 @@
 "use client"
 
 import AnimatedText from "@/components/animated-text"
+import BorderGlow from "@/components/BorderGlow"
 
 export default function Contact() {
   const platforms = [
@@ -51,7 +52,13 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
-        <div className="relative mystic-panel p-8 md:p-12 rounded-[2rem] overflow-hidden flex flex-col items-center">
+        <BorderGlow
+          glowColor="198 93 60"
+          colors={['#38bdf8', '#22d3ee', '#0284c7']}
+          borderRadius={32}
+          backgroundColor="#120F17"
+          className="relative mystic-panel box-glow p-8 md:p-12 rounded-[2rem] overflow-hidden flex flex-col items-center"
+        >
           <AnimatedText text="Platforms I'm in" className="text-4xl font-bold mb-4 text-center text-white w-full" />
           <p className="text-center text-foreground/70 mb-8 max-w-md">
             Find me on these coding platforms, developer networks, and social channels.
@@ -75,7 +82,7 @@ export default function Contact() {
               </a>
             ))}
           </div>
-        </div>
+        </BorderGlow>
       </div>
     </section>
   )

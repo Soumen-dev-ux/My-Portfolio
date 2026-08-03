@@ -6,6 +6,7 @@ import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import { Folder, ExternalLink, Code, Layers, Sparkles } from "lucide-react"
 import AnimatedText from "@/components/animated-text"
+import BorderGlow from "@/components/BorderGlow"
 
 export const projects = [
   {
@@ -90,42 +91,50 @@ export default function Projects() {
 
           {/* Project Slide Cards */}
           {projects.map((project) => (
-            <div
+            <BorderGlow
               key={project.id}
-              onClick={() => router.push(`/project/${project.id}`)}
-              className="cursor-pointer w-full md:w-[420px] flex-shrink-0 h-[480px] flex flex-col justify-between p-8 rounded-[2.5rem] mystic-panel hover:border-primary/50 transition-all duration-300"
+              glowColor="198 93 60"
+              colors={['#38bdf8', '#22d3ee', '#0284c7']}
+              borderRadius={40}
+              backgroundColor="#120F17"
+              className="cursor-pointer w-full md:w-[420px] flex-shrink-0 h-[480px] rounded-[2.5rem] mystic-panel box-glow hover:border-primary/50 transition-all duration-300 overflow-hidden"
             >
-              <div>
-                {/* Project Image Panel */}
-                <div className="aspect-[16/10] bg-primary/10 rounded-2xl flex items-center justify-center text-6xl mb-6 relative overflow-hidden">
-                  <span className="relative z-10 select-none">{project.image}</span>
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/5 opacity-40" />
+              <div
+                onClick={() => router.push(`/project/${project.id}`)}
+                className="h-full flex flex-col justify-between p-8"
+              >
+                <div>
+                  {/* Project Image Panel */}
+                  <div className="aspect-[16/10] bg-primary/10 rounded-2xl flex items-center justify-center text-6xl mb-6 relative overflow-hidden">
+                    <span className="relative z-10 select-none">{project.image}</span>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/5 opacity-40" />
+                  </div>
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mb-2 flex items-center gap-3 text-white">
+                    <Folder className="w-6 h-6 text-primary flex-shrink-0" />
+                    {project.title}
+                  </h3>
+                  {/* Description */}
+                  <p className="text-foreground/75 text-sm mb-6 line-clamp-3 leading-relaxed">
+                    {project.description}
+                  </p>
                 </div>
-                {/* Title */}
-                <h3 className="text-2xl font-bold mb-2 flex items-center gap-3 text-white">
-                  <Folder className="w-6 h-6 text-primary flex-shrink-0" />
-                  {project.title}
-                </h3>
-                {/* Description */}
-                <p className="text-foreground/75 text-sm mb-6 line-clamp-3 leading-relaxed">
-                  {project.description}
-                </p>
+                {/* Tech Stack Footer */}
+                <div className="flex items-center justify-between mt-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.slice(0, 3).map((t) => (
+                      <span key={t} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full font-medium flex items-center gap-1.5">
+                        <Code className="w-3.5 h-3.5" />
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="h-10 w-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary hover:bg-primary/30 transition-colors">
+                    <ExternalLink className="w-5 h-5" />
+                  </div>
+                </div>
               </div>
-              {/* Tech Stack Footer */}
-              <div className="flex items-center justify-between mt-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.slice(0, 3).map((t) => (
-                    <span key={t} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full font-medium flex items-center gap-1.5">
-                      <Code className="w-3.5 h-3.5" />
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="h-10 w-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary hover:bg-primary/30 transition-colors">
-                  <ExternalLink className="w-5 h-5" />
-                </div>
-              </div>
-            </div>
+            </BorderGlow>
           ))}
         </div>
       </div>

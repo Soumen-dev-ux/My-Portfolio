@@ -2,6 +2,7 @@
 
 import Magnetic from "@/components/magnetic"
 import AnimatedText from "@/components/animated-text"
+import BorderGlow from "@/components/BorderGlow"
 
 export const skillCategories = [
   {
@@ -48,9 +49,13 @@ export default function Skills() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {skillCategories.map((category) => (
-            <div
+            <BorderGlow
               key={category.title}
-              className="p-6 md:p-8 rounded-[2rem] mystic-panel overflow-hidden flex flex-col"
+              glowColor="198 93 60"
+              colors={['#38bdf8', '#22d3ee', '#0284c7']}
+              borderRadius={32}
+              backgroundColor="#120F17"
+              className="p-6 md:p-8 rounded-[2rem] mystic-panel box-glow overflow-hidden flex flex-col"
             >
               <h3 className="text-2xl font-bold mb-8 text-gradient-animated inline-block">
                 {category.title}
@@ -73,7 +78,7 @@ export default function Skills() {
                   </Magnetic>
                 ))}
               </div>
-            </div>
+            </BorderGlow>
           ))}
         </div>
       </div>

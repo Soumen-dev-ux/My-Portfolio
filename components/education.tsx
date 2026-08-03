@@ -1,6 +1,7 @@
 "use client"
 
 import AnimatedText from "@/components/animated-text"
+import BorderGlow from "@/components/BorderGlow"
 
 const education = [
   {
@@ -36,7 +37,13 @@ export default function Education() {
                 className={`md:flex gap-8 w-full ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
               >
                 <div className="md:w-1/2">
-                  <div className="h-full mystic-panel rounded-[2rem] overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_28px_rgba(56,189,248,0.2)]">
+                  <BorderGlow
+                    glowColor="198 93 60"
+                    colors={['#38bdf8', '#22d3ee', '#0284c7']}
+                    borderRadius={32}
+                    backgroundColor="#120F17"
+                    className="h-full mystic-panel box-glow rounded-[2rem] overflow-hidden transition-all duration-300 hover:border-primary/60"
+                  >
                     <div className="relative z-20 p-8">
                       <div className="text-4xl mb-6 inline-block p-4 rounded-full border border-primary/35 bg-primary/10">{item.icon}</div>
                       <h3 className="text-2xl font-bold mb-2">{item.degree}</h3>
@@ -44,7 +51,7 @@ export default function Education() {
                       <div className="text-foreground/60 text-sm mb-4 font-medium">{item.year}</div>
                       <p className="text-foreground/70 leading-relaxed">{item.description}</p>
                     </div>
-                  </div>
+                  </BorderGlow>
                 </div>
 
                 {/* Timeline dot */}
