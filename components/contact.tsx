@@ -23,13 +23,13 @@ export default function Contact() {
     {
       label: "LeetCode",
       logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/leetcode.svg",
-      link: "https://leetcode.com/u/Soumen-dev-ux/",
+      link: "https://leetcode.com/u/sou-dev/",
       color: "hover:border-amber-500/50 hover:bg-amber-500/5"
     },
     {
       label: "Codeforces",
       logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/codeforces.svg",
-      link: "https://codeforces.com/profile/Soumen-dev-ux",
+      link: "https://codeforces.com/profile/techie-sou",
       color: "hover:border-blue-400/50 hover:bg-blue-400/5"
     },
     {
@@ -43,12 +43,6 @@ export default function Contact() {
       logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg",
       link: "https://www.instagram.com/techie.sou_19/",
       color: "hover:border-pink-500/50 hover:bg-pink-500/5"
-    },
-    {
-      label: "Reddit",
-      logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/reddit.svg",
-      link: "https://www.reddit.com/user/Soumen-dev-ux",
-      color: "hover:border-orange-500/50 hover:bg-orange-500/5"
     }
   ]
 
