@@ -1,8 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
-import MagicCircle from "@/components/magic-circle"
-
 const education = [
   {
     degree: "Higher Secondary",
@@ -24,32 +21,22 @@ export default function Education() {
   return (
     <section id="education" className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <motion.h2
-          className="text-4xl font-bold mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <h2 className="text-4xl font-bold mb-12 text-center">
           Education
-        </motion.h2>
+        </h2>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary to-transparent shadow-[0_0_9px_#F97316]" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary to-transparent shadow-[0_0_9px_#38BDF8]" />
 
           <div className="space-y-8">
             {education.map((item, index) => (
-              <motion.div
+              <div
                 key={index}
                 className={`md:flex gap-8 w-full ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <div className="md:w-1/2">
-                  <div className="h-full mystic-panel rounded-[2rem] overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_28px_rgba(249,115,22,0.2)]">
+                  <div className="h-full mystic-panel rounded-[2rem] overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_28px_rgba(56,189,248,0.2)]">
                     <div className="relative z-20 p-8">
                       <div className="text-4xl mb-6 inline-block p-4 rounded-full border border-primary/35 bg-primary/10">{item.icon}</div>
                       <h3 className="text-2xl font-bold mb-2">{item.degree}</h3>
@@ -62,11 +49,11 @@ export default function Education() {
 
                 {/* Timeline dot */}
                 <div className="hidden md:flex items-center justify-center relative z-10 w-8">
-                  <div className="relative h-12 w-12"><MagicCircle compact /><div className="absolute inset-[38%] rounded-full bg-accent shadow-[0_0_18px_#F97316]" /></div>
+                  <div className="relative h-6 w-6 rounded-full border border-primary/50 bg-accent shadow-[0_0_10px_#38BDF8]" />
                 </div>
 
                 <div className="md:w-1/2" />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

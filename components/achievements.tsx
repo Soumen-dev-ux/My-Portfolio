@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import Tilt from "@/components/tilt"
 
 const achievements = [
@@ -73,25 +72,13 @@ export default function Achievements() {
   return (
     <section id="achievements" className="py-20 px-4 bg-card/50">
       <div className="max-w-4xl mx-auto">
-        <motion.h2
-          className="text-4xl font-bold mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <h2 className="text-4xl font-bold mb-12 text-center">
           Achievements & Awards
-        </motion.h2>
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           {achievements.map((achievement, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
+            <div key={index}>
               <Tilt className="group w-full h-full">
                 <div className="p-8 h-full border-l-4 border-primary neumorphic rounded-2xl pointer-events-auto hover-glow transition-all duration-300">
                   <div className="flex items-start gap-6">
@@ -112,7 +99,7 @@ export default function Achievements() {
                   </div>
                 </div>
               </Tilt>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

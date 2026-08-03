@@ -1,176 +1,86 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
-import { motion } from "framer-motion"
-import MagicCircle from "@/components/magic-circle"
-
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
-  const [submitted, setSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-
-    try {
-      // Using Formspree for form submission
-      const response = await fetch("https://formspree.io/f/xzdaovra", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-
-      if (response.ok) {
-        setSubmitted(true)
-        setFormData({ name: "", email: "", message: "" })
-        setTimeout(() => setSubmitted(false), 5000)
-      }
-    } catch (error) {
-      console.error("Form submission error:", error)
-    } finally {
-      setIsLoading(false)
+  const platforms = [
+    {
+      label: "Gmail",
+      logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/gmail.svg",
+      link: "mailto:soumenpore0109@gmail.com",
+      color: "hover:border-red-500/50 hover:bg-red-500/5"
+    },
+    {
+      label: "GitHub",
+      logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg",
+      link: "https://github.com/Soumen-dev-ux/",
+      color: "hover:border-neutral-400/50 hover:bg-neutral-400/5"
+    },
+    {
+      label: "LinkedIn",
+      logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg",
+      link: "https://www.linkedin.com/in/soumen-pore/",
+      color: "hover:border-sky-500/50 hover:bg-sky-500/5"
+    },
+    {
+      label: "LeetCode",
+      logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/leetcode.svg",
+      link: "https://leetcode.com/u/Soumen-dev-ux/",
+      color: "hover:border-amber-500/50 hover:bg-amber-500/5"
+    },
+    {
+      label: "Codeforces",
+      logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/codeforces.svg",
+      link: "https://codeforces.com/profile/Soumen-dev-ux",
+      color: "hover:border-blue-400/50 hover:bg-blue-400/5"
+    },
+    {
+      label: "X",
+      logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/x.svg",
+      link: "https://x.com/SoumenPore62983",
+      color: "hover:border-neutral-200/50 hover:bg-neutral-200/5"
+    },
+    {
+      label: "Instagram",
+      logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg",
+      link: "https://www.instagram.com/techie.sou_19/",
+      color: "hover:border-pink-500/50 hover:bg-pink-500/5"
+    },
+    {
+      label: "Reddit",
+      logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/reddit.svg",
+      link: "https://www.reddit.com/user/Soumen-dev-ux",
+      color: "hover:border-orange-500/50 hover:bg-orange-500/5"
     }
-  }
+  ]
 
   return (
     <section id="contact" className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
-        <div className="relative mystic-panel p-8 md:p-12 rounded-[2rem] transition-all duration-300 focus-within:border-primary/70 focus-within:shadow-[0_0_35px_rgba(56,189,248,0.25)] overflow-hidden">
-          <MagicCircle compact className="-right-12 -top-12 h-36 w-36 opacity-45" />
-          <motion.h2
-            className="text-4xl font-bold mb-4 text-center text-gradient-animated inline-block w-full"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Get In Touch
-          </motion.h2>
-          <motion.p
-            className="text-center text-foreground/70 mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Have a project in mind? Let's work together to create something amazing.
-          </motion.p>
+        <div className="relative mystic-panel p-8 md:p-12 rounded-[2rem] overflow-hidden flex flex-col items-center">
+          <h2 className="text-4xl font-bold mb-4 text-center text-gradient-animated inline-block w-full">
+            Platforms I'm in
+          </h2>
+          <p className="text-center text-foreground/70 mb-8 max-w-md">
+            Find me on these coding platforms, developer networks, and social channels.
+          </p>
 
-          {submitted && (
-            <motion.div
-              className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-700 dark:text-green-400"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              Thank you for your message! I'll get back to you soon.
-            </motion.div>
-          )}
-
-          <motion.form
-            onSubmit={handleSubmit}
-            className="space-y-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-5 py-4 text-foreground placeholder:text-foreground/40 transition-all rounded-2xl clay-input"
-                placeholder="Enter Your Name"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Your Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-5 py-4 text-foreground placeholder:text-foreground/40 transition-all rounded-2xl clay-input"
-                placeholder="Enter Your email address"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Your Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                className="w-full px-5 py-4 text-foreground placeholder:text-foreground/40 transition-all resize-none rounded-2xl clay-input"
-                placeholder="Tell me about your project..."
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isLoading}
-            className="spell-button w-full px-6 py-4 text-lg rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isLoading ? "Sending..." : "Send Message"}
-            </button>
-          </motion.form>
-
-          {/* Social Links */}
-          <motion.div
-            className="mt-12 flex justify-center gap-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            {[
-              { label: "GitHub", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg", link: "https://github.com/Soumen-dev-ux/" },
-              { label: "LinkedIn", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg", link: "https://www.linkedin.com/in/soumen-pore/" },
-              { label: "Twitter", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/x.svg", link: "https://x.com/SoumenPore62983" },
-              { label: "Instagram", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg", link: "https://www.instagram.com/techie.sou_19/" }
-            ].map((social, i) => (
-              <motion.a
-                key={social.label}
-                href={social.link}
-                aria-label={social.label}
-                className="w-14 h-14 rounded-full flex items-center justify-center border border-primary/30 bg-primary/10 hover:border-accent hover:shadow-[0_0_18px_rgba(56,189,248,0.7)] group"
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
+          <div className="flex flex-wrap justify-center gap-5">
+            {platforms.map((platform) => (
+              <a
+                key={platform.label}
+                href={platform.link}
+                target={platform.link.startsWith("mailto:") ? undefined : "_blank"}
+                rel={platform.link.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                className={`w-14 h-14 rounded-full flex items-center justify-center border border-primary/30 bg-primary/10 hover:border-accent hover:shadow-[0_0_18px_rgba(56,189,248,0.4)] group transition-all duration-300 ${platform.color}`}
+                aria-label={platform.label}
               >
-                <img src={social.logo || "/placeholder.svg"} alt={social.label} className="w-6 h-6 dark:invert group-hover:scale-110 transition-transform" />
-              </motion.a>
+                <img
+                  src={platform.logo}
+                  alt={platform.label}
+                  className="w-6 h-6 dark:invert group-hover:scale-110 transition-transform duration-300"
+                />
+              </a>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
