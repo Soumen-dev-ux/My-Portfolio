@@ -48,7 +48,7 @@ export default function Projects() {
             <div
               key={project.id}
               onClick={() => router.push(`/project/${project.id}`)}
-              className="cursor-pointer border border-border bg-card p-6 rounded-3xl hover:border-primary/50 transition-colors flex flex-col justify-between"
+              className="cursor-pointer mystic-panel p-6 rounded-3xl hover:border-primary/50 transition-colors flex flex-col justify-between"
             >
               <div>
                 <div className="aspect-square bg-primary/10 rounded-2xl flex items-center justify-center text-6xl mb-6">
