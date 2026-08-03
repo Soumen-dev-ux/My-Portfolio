@@ -6,6 +6,7 @@ import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin"
 import { Sparkles, Terminal, Mail, ChevronDown } from "lucide-react"
+import RotatingText from "@/components/RotatingText"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrambleTextPlugin)
@@ -100,11 +101,21 @@ export default function Hero() {
           </h1>
         </div>
 
-        <div>
-          <p className="text-xl md:text-2xl text-foreground/80 font-medium">
-            I am an <span className="hero-scramble text-primary font-bold drop-shadow-[0_0_8px_#38BDF8]">------</span>
-          </p>
-        </div>
+        <p className="geist-900 md:text-2xl text-foreground/80 font-large">
+          I am an{' '}
+          <RotatingText
+            texts={['Aspiring Software Developer', 'Student', 'Freelancer', 'Researcher']}
+            mainClassName="geist-900 px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            staggerFrom="last"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2000}
+          />
+        </p>
 
         <div>
           <div className="hero-cta flex flex-col sm:flex-row gap-6 justify-center mt-8">
