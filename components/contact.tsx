@@ -60,10 +60,10 @@ export default function Contact() {
           className="relative mystic-panel box-glow p-8 md:p-12 rounded-[2rem] overflow-hidden flex flex-col items-center"
         >
           <AnimatedText text="Platforms I'm in" className="text-4xl font-bold mb-4 text-center text-white w-full" />
-          <p className="text-center text-foreground/70 mb-8 max-w-md">
+          <p className="text-center text-foreground/70 mb-8 max-w-md mx-auto">
             Find me on these coding platforms, developer networks, and social channels.
           </p>
-
+          
           <div className="flex flex-wrap justify-center gap-5">
             {platforms.map((platform) => (
               <a

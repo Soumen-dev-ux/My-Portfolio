@@ -42,22 +42,51 @@ export default function Projects() {
 
     // Horizontal Scroll only on Desktop (min-width: 768px)
     mm.add("(min-width: 768px)", () => {
-      const scrollWidth = scrollRef.current?.scrollWidth || 0
-      const clientWidth = window.innerWidth
-      const xVal = -(scrollWidth - clientWidth + 120) // offset for ending spacing
+      const getScrollDistance = () => {
+        const scrollWidth = scrollRef.current?.scrollWidth ?? 0
+        const viewportWidth = triggerRef.current?.clientWidth ?? window.innerWidth
+
+        return Math.max(0, scrollWidth - viewportWidth + 120)
+      }
 
       gsap.to(scrollRef.current, {
-        x: xVal,
+        x: () => -getScrollDistance(),
         ease: "none",
+        force3D: true,
         scrollTrigger: {
           trigger: triggerRef.current,
           pin: true,
-          scrub: 1.2,
+          // The portfolio is rendered inside a perspective scene, which creates a
+          // containing block for fixed elements. Transform pinning keeps this
+          // section stable inside that scene.
+          pinType: "transform",
+          // A slightly longer catch-up prevents abrupt movement during quick wheel input.
+          scrub: 1.6,
+          anticipatePin: 1,
           start: "top top",
-          end: () => `+=${Math.abs(xVal)}`,
+          end: () => `+=${getScrollDistance()}`,
           invalidateOnRefresh: true,
         }
       })
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top 82%",
+          toggleActions: "play none none reverse",
+        },
+      })
+        .fromTo(
+          ".project-intro",
+          { autoAlpha: 0, y: 28 },
+          { autoAlpha: 1, y: 0, duration: 0.65, ease: "power3.out" }
+        )
+        .fromTo(
+          ".project-card",
+          { autoAlpha: 0, y: 36 },
+          { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.1, ease: "power3.out" },
+          "<0.1"
+        )
     })
 
     return () => mm.revert()
@@ -71,10 +100,10 @@ export default function Projects() {
       <div className="relative z-10 w-full min-h-screen flex flex-col justify-center">
         <div
           ref={scrollRef}
-          className="flex flex-col md:flex-row items-stretch md:items-center gap-8 md:gap-12 px-6 md:px-24 py-16 md:py-0 w-full md:w-max h-auto md:h-[600px]"
+          className="flex flex-col md:flex-row items-stretch md:items-center gap-8 md:gap-12 px-6 md:px-24 py-16 md:py-0 w-full md:w-max h-auto md:h-[600px] will-change-transform"
         >
           {/* Section Info Slide */}
-          <div className="w-full md:w-[380px] flex-shrink-0 flex flex-col justify-center space-y-4 pr-0 md:pr-8">
+          <div className="project-intro w-full md:w-[380px] flex-shrink-0 flex flex-col justify-center space-y-4 pr-0 md:pr-8">
             <div className="flex items-center gap-2 text-primary text-sm font-semibold uppercase tracking-wider">
               <Sparkles className="w-4 h-4" />
               Creative Works
@@ -97,7 +126,7 @@ export default function Projects() {
               colors={['#38bdf8', '#22d3ee', '#0284c7']}
               borderRadius={40}
               backgroundColor="#120F17"
-              className="cursor-pointer w-full md:w-[420px] flex-shrink-0 h-[480px] rounded-[2.5rem] mystic-panel box-glow hover:border-primary/50 transition-all duration-300 overflow-hidden"
+              className="project-card cursor-pointer w-full md:w-[420px] flex-shrink-0 h-[480px] rounded-[2.5rem] mystic-panel box-glow hover:border-primary/50 transition-all duration-300 overflow-hidden"
             >
               <div
                 onClick={() => router.push(`/project/${project.id}`)}

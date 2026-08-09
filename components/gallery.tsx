@@ -1,9 +1,16 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Image from "next/image"
 import { X, ZoomIn } from "lucide-react"
+import { gsap } from "gsap"
+import { Flip } from "gsap/Flip"
+import { useGSAP } from "@gsap/react"
 import AnimatedText from "@/components/animated-text"
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(Flip)
+}
 
 const galleryItems = [
   {
@@ -38,6 +45,26 @@ const galleryItems = [
 
 export default function Gallery() {
   const [activeItem, setActiveItem] = useState<typeof galleryItems[0] | null>(null)
+  const flipStateRef = useRef<any>(null)
+  const modalContainerRef = useRef<HTMLDivElement>(null)
+
+  const handleCardClick = (item: typeof galleryItems[0], cardEl: HTMLElement) => {
+    // Capture Flip state from clicked card element
+    flipStateRef.current = Flip.getState(cardEl, { props: "borderRadius,transform" })
+    setActiveItem(item)
+  }
+
+  useGSAP(() => {
+    if (activeItem && flipStateRef.current && modalContainerRef.current) {
+      Flip.from(flipStateRef.current, {
+        targets: modalContainerRef.current,
+        duration: 0.5,
+        ease: "power3.out",
+        scale: true,
+      })
+      flipStateRef.current = null
+    }
+  }, { dependencies: [activeItem] })
 
   return (
     <section id="gallery" className="py-24 px-4 relative overflow-hidden">
@@ -54,7 +81,8 @@ export default function Gallery() {
           {galleryItems.map((item) => (
             <div
               key={item.id}
-              onClick={() => setActiveItem(item)}
+              onClick={(e) => handleCardClick(item, e.currentTarget)}
+              data-flip-id={`gallery-${item.id}`}
               className={`group cursor-pointer mystic-panel rounded-[2rem] overflow-hidden relative flex flex-col justify-end transition-all duration-300 hover:border-primary/50 ${item.gridClass}`}
             >
               {/* Image Container */}
@@ -102,6 +130,8 @@ export default function Gallery() {
           </button>
 
           <div
+            ref={modalContainerRef}
+            data-flip-id={`gallery-${activeItem.id}`}
             className="relative max-w-4xl max-h-[85vh] w-[90vw] aspect-video md:aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/10"
             onClick={(e) => e.stopPropagation()}
           >

@@ -21,7 +21,7 @@ export default function Navigation() {
         pillColor="var(--secondary)"
         hoveredPillTextColor="#fff"
         pillTextColor="var(--background)"
-        logo="/logo.svg"
+        logo="/fav.webp"
         items={navItems}
       />
     </div>

@@ -4,6 +4,7 @@ import './BorderGlow.css';
 interface BorderGlowProps {
   children?: ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   edgeSensitivity?: number;
   glowColor?: string;
   backgroundColor?: string;
@@ -71,6 +72,7 @@ function animateValue({ start = 0, end = 100, duration = 1000, delay = 0, ease =
 const BorderGlow: React.FC<BorderGlowProps> = ({
   children,
   className = '',
+  style,
   edgeSensitivity = 30,
   glowColor = '40 80 80',
   backgroundColor = '#120F17',
@@ -163,6 +165,7 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
         '--fill-opacity': fillOpacity,
         ...glowVars,
         ...buildGradientVars(colors),
+        ...style,
       } as React.CSSProperties}
     >
       <span className="edge-light" />

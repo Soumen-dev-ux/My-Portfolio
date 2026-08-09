@@ -1,7 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { Flip } from 'gsap/Flip';
 import './PillNav.css';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(Flip);
+}
 
 export type PillNavItem = {
   label: string;
@@ -49,6 +54,26 @@ const PillNav: React.FC<PillNavProps> = ({
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const navItemsRef = useRef<HTMLDivElement | null>(null);
   const logoRef = useRef<HTMLAnchorElement | HTMLElement | null>(null);
+  
+  const activePillRef = useRef<HTMLSpanElement | null>(null);
+  const prevActiveHrefRef = useRef<string | undefined>(activeHref);
+
+  useEffect(() => {
+    if (prevActiveHrefRef.current !== activeHref && activePillRef.current) {
+      const state = Flip.getState(activePillRef.current);
+      prevActiveHrefRef.current = activeHref;
+      requestAnimationFrame(() => {
+        if (activePillRef.current) {
+          Flip.from(state, {
+            duration: 0.4,
+            ease: 'power2.out',
+          });
+        }
+      });
+    } else {
+      prevActiveHrefRef.current = activeHref;
+    }
+  }, [activeHref]);
 
   useEffect(() => {
     const layout = () => {
@@ -257,7 +282,7 @@ const PillNav: React.FC<PillNavProps> = ({
               logoRef.current = el;
             }}
           >
-            <img src={logo} alt={logoAlt} ref={logoImgRef} />
+            <img src={logo} alt={logoAlt} ref={logoImgRef} data-flip-id="logo" />
           </Link>
         ) : (
           <a
@@ -286,6 +311,9 @@ const PillNav: React.FC<PillNavProps> = ({
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
                   >
+                    {activeHref === item.href && (
+                      <span ref={activePillRef} className="absolute inset-0 bg-primary/20 rounded-full pointer-events-none z-0" />
+                    )}
                     <span
                       className="hover-circle"
                       aria-hidden="true"
@@ -293,7 +321,7 @@ const PillNav: React.FC<PillNavProps> = ({
                         circleRefs.current[i] = el;
                       }}
                     />
-                    <span className="label-stack">
+                    <span className="label-stack relative z-10">
                       <span className="pill-label">{item.label}</span>
                       <span className="pill-label-hover" aria-hidden="true">
                         {item.label}
@@ -309,6 +337,9 @@ const PillNav: React.FC<PillNavProps> = ({
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
                   >
+                    {activeHref === item.href && (
+                      <span ref={activePillRef} className="absolute inset-0 bg-primary/20 rounded-full pointer-events-none z-0" />
+                    )}
                     <span
                       className="hover-circle"
                       aria-hidden="true"
@@ -316,7 +347,7 @@ const PillNav: React.FC<PillNavProps> = ({
                         circleRefs.current[i] = el;
                       }}
                     />
-                    <span className="label-stack">
+                    <span className="label-stack relative z-10">
                       <span className="pill-label">{item.label}</span>
                       <span className="pill-label-hover" aria-hidden="true">
                         {item.label}
