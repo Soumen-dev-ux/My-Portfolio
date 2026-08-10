@@ -18,29 +18,29 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        <ScrollZReveal zDistance={-200} fromScale={0.85} tiltX={8} duration={1.1}>
+        <ScrollZReveal zDistance={-140} fromScale={0.96} tiltX={4} duration={0.8} start="top 88%">
           <About />
         </ScrollZReveal>
-        <ScrollZReveal zDistance={-180} fromScale={0.87} tiltX={7} duration={1.05} start="top 86%">
+        <ScrollZReveal zDistance={-130} fromScale={0.96} tiltX={3} duration={0.8} start="top 86%">
           <Skills />
         </ScrollZReveal>
         {/* Projects pins itself for horizontal scrolling. Keeping it outside a
             transformed reveal wrapper prevents the pinned layout from jumping. */}
         <Projects />
-        <ScrollZReveal zDistance={-160} fromScale={0.88} tiltX={6} duration={1.0} start="top 87%">
+        <ScrollZReveal zDistance={-120} fromScale={0.97} tiltX={3} duration={0.75} start="top 87%">
           <Gallery />
         </ScrollZReveal>
-        <ScrollZReveal zDistance={-190} fromScale={0.86} tiltX={7} duration={1.1} start="top 86%">
+        <ScrollZReveal zDistance={-125} fromScale={0.96} tiltX={3} duration={0.8} start="top 86%">
           <Achievements />
         </ScrollZReveal>
-        <ScrollZReveal zDistance={-170} fromScale={0.87} tiltX={6} duration={1.05} start="top 87%">
+        <ScrollZReveal zDistance={-120} fromScale={0.97} tiltX={3} duration={0.75} start="top 87%">
           <Education />
         </ScrollZReveal>
-        <ScrollZReveal zDistance={-200} fromScale={0.85} tiltX={8} duration={1.1} start="top 85%">
+        <ScrollZReveal zDistance={-110} fromScale={0.98} tiltX={2} duration={0.7} start="top 92%">
           <Contact />
         </ScrollZReveal>
       </main>
-      <ScrollZReveal zDistance={-120} fromScale={0.92} tiltX={4} duration={0.9} start="top 90%">
+      <ScrollZReveal zDistance={-80} fromScale={0.98} tiltX={1} duration={0.65} start="top 90%">
         <Footer />
       </ScrollZReveal>
     </div>

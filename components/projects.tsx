@@ -14,6 +14,9 @@ export const projects = [
     title: "Cosmic Sanctum Dashboard",
     description: "A futuristic holographic control panel for tracking celestial anomalies, dimensional energy spikes, and spell status metrics in real-time.",
     image: "🔮",
+    imageSrc: "/placeholder.svg",
+    category: "Dashboard Experience",
+    year: "2025",
     tech: ["Next.js", "Three.js", "WebGL", "Framer Motion", "Tailwind CSS"],
   },
   {
@@ -21,6 +24,9 @@ export const projects = [
     title: "Mystic Energy Analytics",
     description: "An interactive analytics suite visualizing rune computation frequencies, mana dissipation graphs, and multi-dimensional portal logs.",
     image: "⚡",
+    imageSrc: "/placeholder.svg",
+    category: "Data Visualization",
+    year: "2024",
     tech: ["React", "Recharts", "Next.js", "Tailwind CSS", "Framer Motion"],
   },
   {
@@ -28,6 +34,9 @@ export const projects = [
     title: "Sling Ring Portal Navigator",
     description: "A premium booking application mapping interdimensional sling ring portal routes to Kamar-Taj, the Mirror Dimension, and London.",
     image: "🌀",
+    imageSrc: "/placeholder.svg",
+    category: "Booking Experience",
+    year: "2023",
     tech: ["React", "Lucide React", "Tailwind CSS", "Next.js", "WebAudio API"],
   }
 ]
@@ -73,7 +82,8 @@ export default function Projects() {
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top 82%",
-          toggleActions: "play none none reverse",
+          end: "bottom 20%",
+          scrub: 0.8,
         },
       })
         .fromTo(

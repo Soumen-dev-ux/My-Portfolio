@@ -22,17 +22,24 @@ export default function AnimatedText({ text, className = "" }: AnimatedTextProps
   useGSAP(
     () => {
       const split = new SplitText(".animated-chars", { type: "chars,words" })
-      gsap.from(split.chars, {
+      gsap.set(split.chars, {
         opacity: 0,
-        y: 40,
-        rotateX: -40,
-        stagger: 0.015,
-        duration: 0.7,
+        y: 28,
+        rotateX: -24,
+      })
+
+      gsap.to(split.chars, {
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        stagger: 0.012,
+        duration: 0.55,
         ease: "power3.out",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 90%",
-          toggleActions: "play none none none",
+          start: "top 92%",
+          end: "bottom 70%",
+          scrub: 0.7,
         },
       })
     },

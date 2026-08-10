@@ -15,30 +15,51 @@ if (typeof window !== "undefined") {
 const galleryItems = [
   {
     id: 1,
-    title: "Holographic Code Visualizer",
-    category: "Spell Workspace",
-    src: "/gallery_holographic_code.png",
-    gridClass: "md:col-span-2 md:row-span-1",
+    title: "My First Hackathon",
+    category: "Competition",
+    src: "/Gallery/My first hackathon.jpeg",
+    gridClass: "md:col-span-2 md:row-span-2",
   },
   {
     id: 2,
-    title: "Dimensional Spell Runes",
-    category: "Rune Computation",
-    src: "/gallery_mystic_runes.png",
-    gridClass: "md:col-span-1 md:row-span-2",
-  },
-  {
-    id: 3,
-    title: "Cyberpunk Sorcerer Setup",
-    category: "Workspace Layout",
-    src: "/gallery_cyberpunk_workspace.png",
+    title: "Hackathon Event Lead",
+    category: "Leadership",
+    src: "/Gallery/hackathon event lead.jpg",
     gridClass: "md:col-span-1 md:row-span-1",
   },
   {
-    id: 4,
-    title: "Galaxy Charting Dashboard",
-    category: "Dimensional Navigation",
-    src: "/gallery_galaxy_dashboard.png",
+    id: 3,
+    title: "Face of GMIT (KTJ 2K26)",
+    category: "Representer",
+    src: "/Gallery/face of gmit (ktj 2k26).jpeg",
+    gridClass: "md:col-span-1 md:row-span-1",
+  },
+  {
+    id: 7,
+    title: "Event Lead",
+    category: "Leadership",
+    src: "/Gallery/event lead.jpeg",
+    gridClass: "md:col-span-1 md:row-span-2",
+  },
+  {
+    id: 5,
+    title: "GDG DevFest 2025",
+    category: "Community",
+    src: "/Gallery/gdg devfest 2025.jpeg",
+    gridClass: "md:col-span-2 md:row-span-1",
+  },
+  {
+    id: 6,
+    title: "Research Presentation",
+    category: "Academic",
+    src: "/Gallery/first reasearch presentation.png",
+    gridClass: "md:col-span-1 md:row-span-1",
+  },
+  {
+    id: 8,
+    title: "GDG Leads Assemblies",
+    category: "Community",
+    src: "/Gallery/gdg leads assembles.jpeg",
     gridClass: "md:col-span-1 md:row-span-1",
   },
 ]
@@ -76,8 +97,8 @@ export default function Gallery() {
           A visual archive of high-dimensional development workspaces, holographic interfaces, and runic computations.
         </p>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px] w-full mt-4">
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px] md:auto-rows-[240px] w-full mt-4">
           {galleryItems.map((item) => (
             <div
               key={item.id}

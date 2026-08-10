@@ -34,11 +34,11 @@ export default function ScrollZReveal({
   zDistance = -160,
   fromOpacity = 0,
   fromScale = 0.88,
-  duration = 1,
+  duration = 0.8,
   ease = "power3.out",
   start = "top 88%",
   className = "",
-  tiltX = 6,
+  tiltX = 4,
 }: ScrollZRevealProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
 
@@ -66,7 +66,8 @@ export default function ScrollZReveal({
           scrollTrigger: {
             trigger: el,
             start,
-            toggleActions: "play none none none",
+            end: "bottom 20%",
+            scrub: 0.7,
           },
         }
       )
