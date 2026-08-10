@@ -11,34 +11,104 @@ import BorderGlow from "@/components/BorderGlow"
 export const projects = [
   {
     id: 1,
-    title: "Cosmic Sanctum Dashboard",
-    description: "A futuristic holographic control panel for tracking celestial anomalies, dimensional energy spikes, and spell status metrics in real-time.",
-    image: "🔮",
+    title: "Fresh & Fast",
+    description: "Full-stack canteen ordering platform for seamless food ordering and order management.",
+    image: "😋",
     imageSrc: "/placeholder.svg",
-    category: "Dashboard Experience",
+    category: "Project",
     year: "2025",
-    tech: ["Next.js", "Three.js", "WebGL", "Framer Motion", "Tailwind CSS"],
+    tech: ["HTML5","CSS3","JS", "Firebase"],
+    link: "https://fresh-and-fast.netlify.app/"
   },
   {
     id: 2,
-    title: "Mystic Energy Analytics",
-    description: "An interactive analytics suite visualizing rune computation frequencies, mana dissipation graphs, and multi-dimensional portal logs.",
+    title: "SupplySathi",
+    description: "Supplier discovery and connectivity platform designed to simplify business sourcing.",
     image: "⚡",
     imageSrc: "/placeholder.svg",
-    category: "Data Visualization",
-    year: "2024",
-    tech: ["React", "Recharts", "Next.js", "Tailwind CSS", "Framer Motion"],
+    category: "Project",
+    year: "2025",
+    tech: ["HTML5","CSS3","JS", "Local"],
+    link: "https://supply-sathi.netlify.app/"
   },
   {
     id: 3,
-    title: "Sling Ring Portal Navigator",
-    description: "A premium booking application mapping interdimensional sling ring portal routes to Kamar-Taj, the Mirror Dimension, and London.",
-    image: "🌀",
+    title: "ThinkArena",
+    description: "Interactive learning and problem-solving platform built around knowledge sharing and challenges.",
+    image: "🧠",
     imageSrc: "/placeholder.svg",
-    category: "Booking Experience",
-    year: "2023",
-    tech: ["React", "Lucide React", "Tailwind CSS", "Next.js", "WebAudio API"],
+    category: "Hackathon",
+    year: "2025",
+    tech: ["HTML5","CSS3","JS","Local"],
+    link: "https://thinkarenaa.netlify.app/"
+  },
+  {
+    id: 4,
+    title: "EduRova",
+    description: "Educational platform focused on accessible learning resources and interactive experiences.",
+    image: "🧑🏻‍🎓",
+    imageSrc: "/placeholder.svg",
+    category: "Project",
+    year: "2026",
+    tech: ["MongoDB","Stripe","React","NodeJS", "FireBase", "Express", "JWT","..."],
+    link: "https://edurova.vercel.app/"
+  },
+  {
+    id: 5,
+    title: "DishCovery",
+    description: "Recipe discovery platform for finding recipes based on ingredients and food preferences.",
+    image: "🧑🏻‍🍳",
+    imageSrc: "/placeholder.svg",
+    category: "Project",
+    year: "2026",
+    tech: ["HTML5","CSS3","JS","TheMealDB","BootStrap"],
+    link: "http://techie-sou.me/DishCovery/"
+  },
+  {
+    id: 5,
+    title: "AgriGuard",
+    description: "AI-powered plant disease detection platform with multilingual agricultural guidance.",
+    image: "🌾",
+    imageSrc: "/placeholder.svg",
+    category: "Project",
+    year: "2026",
+    tech: ["React", "Node", "Gemini"],
+    link: "https://agri-guard-tsou.vercel.app/"
+  },
+  {
+    id: 5,
+    title: "Expense Tracker",
+    description: "Personal finance dashboard for tracking income, expenses, and spending patterns.",
+    image: "💸",
+    imageSrc: "/placeholder.svg",
+    category: "Hackathon",
+    year: "2026",
+    tech: ["React", "Redux", "Local"],
+    link: "https://expense-tracker-rho-two-45.vercel.app/"
+  },
+  {
+    id: 5,
+    title: "AI-Based Plant Disease Detection",
+    description: "Research focused on applying machine learning and computer vision techniques to detect plant diseases from crop images and support accessible, technology-driven agricultural decision-making.",
+    image: "📃",
+    imageSrc: "/placeholder.svg",
+    category: "Research Paper",
+    year: "2026",
+    tech: ["Research Paper"],
+    link: "https://docs.google.com/document/d/1eLtECU6W1msy6VW_5v7iJE17Ql8d5W_X2wRgBqq6jxk/edit?usp=sharing"
+  },
+  {
+    id: 5,
+    title: "Machine Learning in Cybersecurity",
+    description: "Research exploring the application of machine learning techniques in cybersecurity for detecting anomalous behavior, identifying potential threats, and improving automated security monitoring.",
+    image: "📃",
+    imageSrc: "/placeholder.svg",
+    category: "Project",
+    year: "2026",
+    tech: ["Research Paper"],
+    link: "https://docs.google.com/document/d/1LTJZ7C6zydkyiR_Ez92uoMwLyuYDaW9e3bClAHpPDCc/edit?usp=sharing"
   }
+
 ]
 
 export default function Projects() {
@@ -139,7 +209,7 @@ export default function Projects() {
               className="project-card cursor-pointer w-full md:w-[420px] flex-shrink-0 h-[480px] rounded-[2.5rem] mystic-panel box-glow hover:border-primary/50 transition-all duration-300 overflow-hidden"
             >
               <div
-                onClick={() => router.push(`/project/${project.id}`)}
+                onClick={() => router.push(`${project.link}`)}
                 className="h-full flex flex-col justify-between p-8"
               >
                 <div>
