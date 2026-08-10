@@ -46,6 +46,12 @@ export default function Contact() {
       logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg",
       link: "https://www.instagram.com/techie.sou_19/",
       color: "hover:border-pink-500/50 hover:bg-pink-500/5"
+    },
+    {
+      label: "Google for Developers",
+      logo: "https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/google.svg",
+      link: "https://g.dev/soumenpore",
+      color: "hover: border-green-500/50 hober:bg-green-500/50"
     }
   ]
 
