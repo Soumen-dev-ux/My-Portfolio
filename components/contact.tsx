@@ -67,7 +67,7 @@ export default function Contact() {
         >
           <AnimatedText text="Platforms I'm in" className="text-4xl font-bold mb-4 text-center text-white w-full" />
           <p className="text-center text-foreground/70 mb-8 max-w-md mx-auto">
-            Find me on these coding platforms, developer networks, and social channels.
+            Find me on these platforms to get connect with me.
           </p>
           
           <div className="flex flex-wrap justify-center gap-5">

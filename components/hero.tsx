@@ -120,15 +120,13 @@ export default function Hero() {
         <div>
           <div className="hero-cta flex flex-col sm:flex-row gap-6 justify-center mt-8">
             {/* View My Work - Solid blue */}
-            <a
-              href="https://tech-city-tsou.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="spell-button px-8 py-3 text-lg rounded-full whitespace-nowrap flex items-center justify-center gap-2"
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="spell-button px-8 py-3 text-lg rounded-full whitespace-nowrap flex items-center justify-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-5 h-5" />
-              View My Work
-            </a>
+              View My Projects
+            </button>
 
             {/* Get In Touch - Bordered cyan */}
             <button
@@ -141,7 +139,7 @@ export default function Hero() {
 
             {/* Download Resume - Solid cyan */}
             <a
-              href="/SoumenPoreResume.pdf"
+              href="/public/Soumen_Pore_Resume.pdf"
               download
               className="spell-button px-8 py-3 text-lg rounded-full whitespace-nowrap flex items-center justify-center gap-2"
             >
