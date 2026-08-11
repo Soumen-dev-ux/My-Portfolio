@@ -50,8 +50,8 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
-            <p>&copy; {currentYear} Portfolio. All rights reserved.</p>
-            <p>Designed & Built by Me with React & Next.js</p>
+            <p>&copy; Google me for more informations</p>
+            <p>Designed & Built with Passsion</p>
           </div>
         </div>
       </div>
