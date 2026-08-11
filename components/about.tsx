@@ -30,7 +30,7 @@ export default function About() {
             >
               <Spotlight className="neumorphic box-glow rounded-2xl hover-glow group transition-all duration-300 overflow-hidden p-8">
                 <div className="relative z-20">
-                  <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">25+</div>
+                  <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">20+</div>
                   <div className="text-foreground/70 font-medium">Projects Completed</div>
                 </div>
               </Spotlight>
@@ -58,7 +58,7 @@ export default function About() {
             >
               <Spotlight className="neumorphic box-glow rounded-2xl hover-glow group transition-all duration-300 overflow-hidden p-8">
                 <div className="relative z-20">
-                  <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">20+</div>
+                  <div className="text-4xl font-bold text-gradient-animated inline-block mb-2">25+</div>
                   <div className="text-foreground/70 font-medium">Google Badges Collected</div>
                 </div>
               </Spotlight>
