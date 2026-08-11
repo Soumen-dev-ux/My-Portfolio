@@ -41,7 +41,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Info</h3>
             <div className="space-y-2 text-sm text-foreground/70">
-              <p>Email: soumenpore0109@gmail.com</p>
+              <p>Email: soumenpore7777@gmail.com</p>
               <p>Phone: +91 7432840665</p>
               <p>Location: Kolkata, India</p>
             </div>
@@ -50,8 +50,8 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
-            <p>&copy; {currentYear} Portfolio. All rights reserved.</p>
-            <p>Designed & Built by Me with React & Next.js</p>
+            <p>&copy; Google me for more informations</p>
+            <p>Designed & Built with Passsion</p>
           </div>
         </div>
       </div>

@@ -2,15 +2,18 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import CustomCursor from "@/components/custom-cursor"
-import SmoothScrolling from "@/components/smooth-scrolling"
 import { ThemeProvider } from "@/components/theme-provider"
-import ScrollProgress from "@/components/scroll-progress"
-import ParticleSwarmBackground from "@/components/particle-swarm"
+import GsapInitializer from "@/components/gsap-initializer"
+import PageTransition from "@/components/page-transition"
 
 export const metadata: Metadata = {
   title: "Soumen Pore",
   description: "Web Resume of Soumen Pore",
+  icons: {
+    icon: "/fav.webp",
+    apple: "/fav.webp",
+    shortcut: "/fav.webp",
+  },
 }
 
 export default function RootLayout({
@@ -20,15 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans antialiased text-foreground selection:bg-primary/30 selection:text-primary`}>
+      <body className="font-sans antialiased text-foreground selection:bg-primary/30 selection:text-primary">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
-          <SmoothScrolling>
-            <ParticleSwarmBackground />
-            <ScrollProgress />
-            <CustomCursor />
-            {children}
-            <Analytics />
-          </SmoothScrolling>
+          <GsapInitializer />
+          <PageTransition>{children}</PageTransition>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

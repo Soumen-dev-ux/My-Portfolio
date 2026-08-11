@@ -1,6 +1,14 @@
 "use client"
 
-import { motion, Variants } from "framer-motion"
+import { useRef } from "react"
+import { gsap } from "gsap"
+import { useGSAP } from "@gsap/react"
+import { SplitText } from "gsap/SplitText"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(SplitText, ScrollTrigger)
+}
 
 interface AnimatedTextProps {
   text: string
@@ -8,49 +16,41 @@ interface AnimatedTextProps {
   once?: boolean
 }
 
-export default function AnimatedText({ text, className = "", once = true }: AnimatedTextProps) {
-  // Split words first, then characters to handle spacing properly
-  const words = text.split(" ")
+export default function AnimatedText({ text, className = "" }: AnimatedTextProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
 
-  const container: Variants = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: 0.05, delayChildren: 0.1 * i },
-    }),
-  }
+  useGSAP(
+    () => {
+      const split = new SplitText(".animated-chars", { type: "chars,words" })
+      gsap.set(split.chars, {
+        opacity: 0,
+        y: 28,
+        rotateX: -24,
+      })
 
-  const child: Variants = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { damping: 12, stiffness: 100 },
+      gsap.to(split.chars, {
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        stagger: 0.012,
+        duration: 0.55,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 92%",
+          end: "bottom 70%",
+          scrub: 0.7,
+        },
+      })
     },
-    hidden: {
-      opacity: 0,
-      y: 20,
-      scale: 0.9,
-    },
-  }
+    { scope: containerRef }
+  )
 
   return (
-    <motion.div
-      className={`overflow-hidden flex flex-wrap ${className}`}
-      variants={container}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once, margin: "-100px" }}
-    >
-      {words.map((word, index) => (
-        <span key={index} className="inline-block mr-[0.25em] whitespace-nowrap">
-          {word.split("").map((character, idx) => (
-            <motion.span variants={child} key={idx} className="inline-block">
-              {character}
-            </motion.span>
-          ))}
-        </span>
-      ))}
-    </motion.div>
+    <div ref={containerRef} className="overflow-hidden py-1">
+      <div className={`animated-chars ${className}`}>
+        {text}
+      </div>
+    </div>
   )
 }
