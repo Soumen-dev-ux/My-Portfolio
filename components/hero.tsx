@@ -139,7 +139,7 @@ export default function Hero() {
 
             {/* Download Resume - Solid cyan */}
             <a
-              href="/public/Soumen_Pore_Resume.pdf"
+              href="/Soumen_Pore_Resume.pdf"
               download
               className="spell-button px-8 py-3 text-lg rounded-full whitespace-nowrap flex items-center justify-center gap-2"
             >
