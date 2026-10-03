@@ -8,7 +8,7 @@ import PageTransition from "@/components/page-transition"
 
 export const metadata: Metadata = {
   title: "Soumen Pore",
-  description: "Web Resume of Soumen Pore",
+  description: "Web Resume of Soumen Pore. He is from Shyampur, Howrah, WestBengal. His date of Birth is 1st  September of 2006. He completed his Secondary or 10th schooling from `Dehimondalghat High School` and Higher Secodary or 12th from `Anantapur Siddheswari High School`. He has named a research paper , a journal and a patent.",
   icons: {
     icon: "/fav.webp",
     apple: "/fav.webp",
