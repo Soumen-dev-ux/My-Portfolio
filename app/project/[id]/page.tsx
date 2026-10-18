@@ -1,97 +1,70 @@
 "use client"
 
-import { projects } from "@/components/projects"
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
-import PageTransition from "@/components/page-transition"
 import { useParams } from "next/navigation"
-
+import { ArrowLeft, ArrowUpRight } from "lucide-react"
+import { projects } from "@/components/projects"
 
 export default function ProjectPage() {
   const params = useParams()
-  const idStr = params.id as string
-  const project = projects.find((p) => p.id === parseInt(idStr))
+  const id = Number(params.id)
+  const project = projects.find((item) => item.id === id)
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <div className="text-center neumorphic p-8 rounded-2xl max-w-md w-full">
-          <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-          <p className="text-foreground/70 mb-8">The project you are looking for doesn't exist or has been removed.</p>
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors w-full"
-          >
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Home
+      <main className="flex min-h-screen items-center justify-center p-6">
+        <div className="max-w-md rounded-3xl border border-white/10 bg-card p-8 text-center">
+          <h1 className="mb-3 text-3xl font-bold">Project not found</h1>
+          <p className="mb-7 text-foreground/65">This project does not exist in the portfolio.</p>
+          <Link href="/#projects" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground">
+            <ArrowLeft className="h-4 w-4" /> Back to projects
           </Link>
         </div>
-      </div>
+      </main>
     )
   }
 
   return (
-    <PageTransition>
-      <div className="min-h-screen py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <Link
-            href="/"
-            className="inline-flex items-center px-4 py-2 neumorphic rounded-full text-primary font-semibold hover:shadow-inner transition-all duration-300 mb-8"
-          >
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Home
-          </Link>
+    <main className="min-h-screen px-6 py-12 md:px-10 md:py-20">
+      <div className="mx-auto max-w-5xl">
+        <Link href="/#projects" className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-accent">
+          <ArrowLeft className="h-4 w-4" /> Back to projects
+        </Link>
 
-          <div className="neumorphic rounded-3xl p-8 md:p-12 mb-8 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
+        <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-card/60 shadow-2xl shadow-primary/5 backdrop-blur">
+          <div className="relative aspect-[16/7] min-h-64">
+            <Image src={project.imageSrc} alt={`${project.title} preview`} fill priority className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+          </div>
+          <div className="relative -mt-24 px-6 pb-10 md:-mt-32 md:px-12 md:pb-14">
+            <span className="mb-4 inline-flex rounded-full border border-primary/30 bg-primary/15 px-3 py-1 text-sm font-medium text-primary">
+              {project.category} · {project.year}
+            </span>
+            <h1 className="mb-5 text-4xl font-bold tracking-tight text-white md:text-6xl">{project.title}</h1>
+            <p className="max-w-3xl text-lg leading-relaxed text-foreground/75 md:text-xl">{project.description}</p>
 
-            <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
-              <div className="w-full md:w-1/3 aspect-square neumorphic-inset rounded-2xl flex items-center justify-center text-8xl shrink-0 group-hover:scale-[1.02] transition-transform duration-500">
-                {project.image}
+            <div className="my-9 flex flex-wrap gap-2">
+              {project.tech.map((tech) => <span key={tech} className="rounded-full bg-white/8 px-3 py-1.5 text-sm text-foreground/80">{tech}</span>)}
+            </div>
+
+            <div className="grid gap-8 border-t border-white/10 pt-8 md:grid-cols-2">
+              <div>
+                <h2 className="mb-3 text-xl font-semibold text-white">Overview</h2>
+                <p className="leading-relaxed text-foreground/65">This sample case study demonstrates a user-first product experience with a clear visual system, responsive layouts, and room for future feature growth.</p>
               </div>
-
-              <div className="flex-1">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h1>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech: string, index: number) => (
-                    <span
-                      key={index}
-                      className="px-4 py-1.5 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="text-xl text-foreground/80 leading-relaxed mb-8">
-                  {project.description}
-                </p>
-
-                <div className="prose dark:prose-invert max-w-none text-foreground/70 space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-3 text-foreground">Overview</h3>
-                    <p className="leading-relaxed">
-                      This project was built to address specific needs in the market, providing a seamless
-                      and intuitive user experience. Leveraging modern technologies like {project.tech.join(", ")},
-                      we ensured high performance, reliability, and scalability.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-3 text-foreground">Future Scope</h3>
-                    <p className="leading-relaxed">
-                      Future iterations will focus on expanding feature sets and integrating more advanced
-                      capabilities based on real-time user feedback and analytics. The architecture has been
-                      designed from the ground up to accommodate these future enhancements easily.
-                    </p>
-                  </div>
-                </div>
+              <div>
+                <h2 className="mb-3 text-xl font-semibold text-white">What&apos;s next</h2>
+                <p className="leading-relaxed text-foreground/65">A production version could add real data integrations, authenticated workflows, and measurement to continuously improve the experience.</p>
               </div>
             </div>
+
+            <Link href="/#contact" className="mt-10 inline-flex items-center gap-2 font-semibold text-primary transition hover:text-accent">
+              Discuss a similar project <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
-        </div>
+        </article>
       </div>
-    </PageTransition>
+    </main>
   )
 }
