@@ -1,0 +1,113 @@
+"use client"
+
+import { gsap } from "gsap"
+import { Flip } from "gsap/Flip"
+import Magnetic from "@/components/magnetic"
+import AnimatedText from "@/components/animated-text"
+import BorderGlow from "@/components/BorderGlow"
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(Flip)
+}
+
+export const skillCategories = [
+  {
+    title: "Frontend",
+    skills: [
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+      { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
+      { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+      { name: "HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+      { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+      { name: "BoootStrap", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" },
+    ],
+  },
+  {
+    title: "Backend & DB Systems",
+    skills: [
+      { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+      { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+      { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
+      { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+    ],
+  },
+  {
+    title: "Tools & Platforms",
+    skills: [
+      { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+      { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
+      { name: "Vercel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" },
+      { name: "Netlify", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg" },
+      { name: "Postman", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
+      { name: "Canva", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg"},
+    ],
+  },
+]
+
+export default function Skills() {
+  const handleSkillMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    const badge = e.currentTarget.querySelector(".skill-icon-badge") as HTMLElement
+    if (badge) {
+      const state = Flip.getState(badge)
+      badge.style.transform = "scale(1.15)"
+      Flip.from(state, { duration: 0.3, ease: "power2.out" })
+    }
+  }
+
+  const handleSkillMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const badge = e.currentTarget.querySelector(".skill-icon-badge") as HTMLElement
+    if (badge) {
+      const state = Flip.getState(badge)
+      badge.style.transform = "scale(1)"
+      Flip.from(state, { duration: 0.25, ease: "power2.out" })
+    }
+  }
+
+  return (
+    <section id="skills" className="py-24 px-4 relative">
+      <div className="max-w-6xl mx-auto">
+        <AnimatedText text="Skills & Expertise" className="text-4xl font-bold mb-12 text-center text-white" />
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {skillCategories.map((category) => (
+            <BorderGlow
+              key={category.title}
+              glowColor="198 93 60"
+              colors={['#38bdf8', '#22d3ee', '#0284c7']}
+              borderRadius={32}
+              backgroundColor="#120F17"
+              className="p-6 md:p-8 rounded-[2rem] mystic-panel box-glow overflow-hidden flex flex-col"
+            >
+              <h3 className="text-2xl font-bold mb-8 text-gradient-animated inline-block">
+                {category.title}
+              </h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {category.skills.map((skill) => (
+                  <Magnetic key={skill.name} intensity={0.3}>
+                    <div
+                      onMouseEnter={handleSkillMouseEnter}
+                      onMouseLeave={handleSkillMouseLeave}
+                      className="group flex flex-col items-center gap-3 w-full h-full cursor-pointer"
+                    >
+                      <div className="skill-icon-badge w-14 h-14 rounded-full flex items-center justify-center border border-primary/30 bg-primary/5 p-3 group-hover:border-accent transition-transform">
+                        <img
+                          src={skill.logo || "/placeholder.svg"}
+                          alt={skill.name}
+                          className="w-full h-full object-contain filter drop-shadow-sm"
+                        />
+                      </div>
+                      <span className="text-[10px] font-medium text-center text-accent/75">
+                        {skill.name}
+                      </span>
+                    </div>
+                  </Magnetic>
+                ))}
+              </div>
+            </BorderGlow>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
